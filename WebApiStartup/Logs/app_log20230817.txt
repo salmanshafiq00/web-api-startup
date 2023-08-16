@@ -1,0 +1,102 @@
+2023-08-17 00:00:48.800 +06:00 [INF] User profile is available. Using 'C:\Users\Salman\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-08-17 00:00:48.934 +06:00 [INF] Now listening on: https://localhost:7226
+2023-08-17 00:00:48.935 +06:00 [INF] Now listening on: http://localhost:5145
+2023-08-17 00:00:48.937 +06:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-08-17 00:00:48.938 +06:00 [INF] Hosting environment: Development
+2023-08-17 00:00:48.938 +06:00 [INF] Content root path: D:\Programming\Projects\WebApiStartup\WebApiStartup
+2023-08-17 00:00:49.698 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/index.html - -
+2023-08-17 00:00:49.861 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/index.html - - - 200 - text/html;charset=utf-8 164.6223ms
+2023-08-17 00:00:49.883 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/_framework/aspnetcore-browser-refresh.js - -
+2023-08-17 00:00:49.883 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/_vs/browserLink - -
+2023-08-17 00:00:49.892 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 8.9900ms
+2023-08-17 00:00:49.921 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 37.9047ms
+2023-08-17 00:00:50.017 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - -
+2023-08-17 00:00:50.102 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 84.6960ms
+2023-08-17 00:01:14.981 +06:00 [INF] Request starting HTTP/2 POST https://localhost:7226/api/Account/Login application/json 67
+2023-08-17 00:01:15.049 +06:00 [INF] Executing endpoint 'WebApiStartup.Controllers.AccountController.Login (WebApiStartup)'
+2023-08-17 00:01:15.072 +06:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(WebApiStartup.DTOs.LoginRequestDTO) on controller WebApiStartup.Controllers.AccountController (WebApiStartup).
+2023-08-17 00:01:17.008 +06:00 [INF] Executed DbCommand (50ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedEmail] = @__normalizedEmail_0
+2023-08-17 00:01:17.232 +06:00 [INF] Executed DbCommand (4ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Name]
+FROM [UserRoles] AS [u]
+INNER JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[Id]
+WHERE [u].[UserId] = @__userId_0
+2023-08-17 00:01:17.333 +06:00 [INF] Executing OkObjectResult, writing value of type 'WebApiStartup.DTOs.LoginResponseDTO'.
+2023-08-17 00:01:17.342 +06:00 [INF] Executed action WebApiStartup.Controllers.AccountController.Login (WebApiStartup) in 2263.3662ms
+2023-08-17 00:01:17.345 +06:00 [INF] Executed endpoint 'WebApiStartup.Controllers.AccountController.Login (WebApiStartup)'
+2023-08-17 00:01:17.353 +06:00 [INF] Request finished HTTP/2 POST https://localhost:7226/api/Account/Login application/json 67 - 200 - application/json;+charset=utf-8 2372.1365ms
+2023-08-17 00:01:45.865 +06:00 [INF] Request starting HTTP/2 POST https://localhost:7226/api/v1/Categories/CreateCategory application/json 61
+2023-08-17 00:01:45.937 +06:00 [INF] Executing endpoint 'WebApiStartup.Controllers.CategoriesController.CreateCategory (WebApiStartup)'
+2023-08-17 00:01:45.942 +06:00 [INF] Route matched with {action = "CreateCategory", controller = "Categories"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateCategory(WebApiStartup.DTOs.CreateCategoryDTO) on controller WebApiStartup.Controllers.CategoriesController (WebApiStartup).
+2023-08-17 00:01:58.504 +06:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.SerializableError'.
+2023-08-17 00:01:58.507 +06:00 [INF] Executed action WebApiStartup.Controllers.CategoriesController.CreateCategory (WebApiStartup) in 12562.5539ms
+2023-08-17 00:01:58.508 +06:00 [INF] Executed endpoint 'WebApiStartup.Controllers.CategoriesController.CreateCategory (WebApiStartup)'
+2023-08-17 00:02:00.456 +06:00 [INF] Request finished HTTP/2 POST https://localhost:7226/api/v1/Categories/CreateCategory application/json 61 - 400 - application/json;+charset=utf-8 14591.1382ms
+2023-08-17 00:15:21.995 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/index.html - -
+2023-08-17 00:15:22.015 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/index.html - - - 200 - text/html;charset=utf-8 20.5007ms
+2023-08-17 00:15:22.034 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/_framework/aspnetcore-browser-refresh.js - -
+2023-08-17 00:15:22.036 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 1.7046ms
+2023-08-17 00:15:22.040 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/_vs/browserLink - -
+2023-08-17 00:15:22.085 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 44.5846ms
+2023-08-17 00:15:22.184 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - -
+2023-08-17 00:15:22.203 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 18.5436ms
+2023-08-17 00:15:27.954 +06:00 [INF] User profile is available. Using 'C:\Users\Salman\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-08-17 00:15:28.084 +06:00 [INF] Now listening on: https://localhost:7226
+2023-08-17 00:15:28.086 +06:00 [INF] Now listening on: http://localhost:5145
+2023-08-17 00:15:28.087 +06:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-08-17 00:15:28.088 +06:00 [INF] Hosting environment: Development
+2023-08-17 00:15:28.089 +06:00 [INF] Content root path: D:\Programming\Projects\WebApiStartup\WebApiStartup
+2023-08-17 00:15:28.546 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/index.html - -
+2023-08-17 00:15:28.723 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/index.html - - - 200 - text/html;charset=utf-8 177.9434ms
+2023-08-17 00:15:28.735 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/_framework/aspnetcore-browser-refresh.js - -
+2023-08-17 00:15:28.735 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/_vs/browserLink - -
+2023-08-17 00:15:28.749 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 13.0100ms
+2023-08-17 00:15:28.785 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 49.4873ms
+2023-08-17 00:15:28.827 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - -
+2023-08-17 00:15:28.937 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 110.2128ms
+2023-08-17 00:15:41.576 +06:00 [INF] Request starting HTTP/2 POST https://localhost:7226/api/Account/Login application/json 67
+2023-08-17 00:15:41.646 +06:00 [INF] Executing endpoint 'WebApiStartup.Controllers.AccountController.Login (WebApiStartup)'
+2023-08-17 00:15:41.669 +06:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(WebApiStartup.DTOs.LoginRequestDTO) on controller WebApiStartup.Controllers.AccountController (WebApiStartup).
+2023-08-17 00:15:43.533 +06:00 [INF] Executed DbCommand (41ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedEmail] = @__normalizedEmail_0
+2023-08-17 00:15:43.764 +06:00 [INF] Executed DbCommand (4ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Name]
+FROM [UserRoles] AS [u]
+INNER JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[Id]
+WHERE [u].[UserId] = @__userId_0
+2023-08-17 00:15:43.866 +06:00 [INF] Executing OkObjectResult, writing value of type 'WebApiStartup.DTOs.LoginResponseDTO'.
+2023-08-17 00:15:43.874 +06:00 [INF] Executed action WebApiStartup.Controllers.AccountController.Login (WebApiStartup) in 2197.9489ms
+2023-08-17 00:15:43.876 +06:00 [INF] Executed endpoint 'WebApiStartup.Controllers.AccountController.Login (WebApiStartup)'
+2023-08-17 00:15:43.885 +06:00 [INF] Request finished HTTP/2 POST https://localhost:7226/api/Account/Login application/json 67 - 200 - application/json;+charset=utf-8 2309.1727ms
+2023-08-17 00:16:23.384 +06:00 [INF] Request starting HTTP/2 POST https://localhost:7226/api/v1/Categories/CreateCategory application/json 61
+2023-08-17 00:16:23.444 +06:00 [INF] Executing endpoint 'WebApiStartup.Controllers.CategoriesController.CreateCategory (WebApiStartup)'
+2023-08-17 00:16:23.449 +06:00 [INF] Route matched with {action = "CreateCategory", controller = "Categories"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateCategory(WebApiStartup.DTOs.CreateCategoryDTO) on controller WebApiStartup.Controllers.CategoriesController (WebApiStartup).
+2023-08-17 00:16:23.571 +06:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2023-08-17 00:16:23.575 +06:00 [INF] Executed action WebApiStartup.Controllers.CategoriesController.CreateCategory (WebApiStartup) in 125.2276ms
+2023-08-17 00:16:23.576 +06:00 [INF] Executed endpoint 'WebApiStartup.Controllers.CategoriesController.CreateCategory (WebApiStartup)'
+2023-08-17 00:16:23.577 +06:00 [INF] Request finished HTTP/2 POST https://localhost:7226/api/v1/Categories/CreateCategory application/json 61 - 400 - application/problem+json;+charset=utf-8 193.5989ms
+2023-08-17 00:17:10.494 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/index.html - -
+2023-08-17 00:17:10.517 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/index.html - - - 200 - text/html;charset=utf-8 23.6160ms
+2023-08-17 00:17:10.532 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/_framework/aspnetcore-browser-refresh.js - -
+2023-08-17 00:17:10.534 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 2.0513ms
+2023-08-17 00:17:10.551 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/_vs/browserLink - -
+2023-08-17 00:17:10.593 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 41.9033ms
+2023-08-17 00:17:10.702 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - -
+2023-08-17 00:17:10.721 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 18.8399ms
+2023-08-17 00:17:20.437 +06:00 [INF] Request starting HTTP/2 POST https://localhost:7226/api/v1/Categories/CreateCategory application/json 67
+2023-08-17 00:17:20.444 +06:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (superadmin)
+2023-08-17 00:17:20.449 +06:00 [INF] AuthenticationScheme: Bearer was challenged.
+2023-08-17 00:17:20.450 +06:00 [INF] Request finished HTTP/2 POST https://localhost:7226/api/v1/Categories/CreateCategory application/json 67 - 401 0 - 13.4493ms
+2023-08-17 00:17:32.168 +06:00 [INF] Request starting HTTP/2 POST https://localhost:7226/api/v1/Categories/CreateCategory application/json 67
+2023-08-17 00:17:32.173 +06:00 [INF] Executing endpoint 'WebApiStartup.Controllers.CategoriesController.CreateCategory (WebApiStartup)'
+2023-08-17 00:17:32.177 +06:00 [INF] Route matched with {action = "CreateCategory", controller = "Categories"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateCategory(WebApiStartup.DTOs.CreateCategoryDTO) on controller WebApiStartup.Controllers.CategoriesController (WebApiStartup).
+2023-08-17 00:17:32.183 +06:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2023-08-17 00:17:32.185 +06:00 [INF] Executed action WebApiStartup.Controllers.CategoriesController.CreateCategory (WebApiStartup) in 5.7223ms
+2023-08-17 00:17:32.186 +06:00 [INF] Executed endpoint 'WebApiStartup.Controllers.CategoriesController.CreateCategory (WebApiStartup)'
+2023-08-17 00:17:32.187 +06:00 [INF] Request finished HTTP/2 POST https://localhost:7226/api/v1/Categories/CreateCategory application/json 67 - 400 - application/problem+json;+charset=utf-8 18.7320ms

@@ -1,0 +1,1314 @@
+2023-08-16 02:03:26.155 +06:00 [WRN] The foreign key property 'Product.CategoryId1' was created in shadow state because a conflicting property with the simple name 'CategoryId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2023-08-16 02:03:26.263 +06:00 [WRN] The foreign key property 'Product.CategoryId1' was created in shadow state because a conflicting property with the simple name 'CategoryId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2023-08-16 02:04:47.742 +06:00 [WRN] The foreign key property 'Product.CategoryId1' was created in shadow state because a conflicting property with the simple name 'CategoryId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2023-08-16 02:04:48.978 +06:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-08-16 02:04:48.991 +06:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-08-16 02:04:48.992 +06:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-08-16 02:04:48.993 +06:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-08-16 02:04:49.000 +06:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-08-16 02:04:49.008 +06:00 [INF] Applying migration '20230815200326_AddedNewEntity'.
+2023-08-16 02:04:49.049 +06:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Categories] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(256) NOT NULL,
+    [Description] nvarchar(500) NULL,
+    [PhotoUrl] nvarchar(500) NULL,
+    CONSTRAINT [PK_Categories] PRIMARY KEY ([Id])
+);
+2023-08-16 02:04:49.051 +06:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Products] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(256) NOT NULL,
+    [Description] nvarchar(500) NULL,
+    [Price] decimal(10,2) NOT NULL,
+    [ExpireDate] datetime2 NULL,
+    [CategoryId] int NOT NULL,
+    [PhotoUrl] nvarchar(500) NULL,
+    [CategoryId1] int NOT NULL,
+    CONSTRAINT [PK_Products] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Products_Categories_CategoryId] FOREIGN KEY ([CategoryId]) REFERENCES [Categories] ([Id]) ON DELETE NO ACTION,
+    CONSTRAINT [FK_Products_Categories_CategoryId1] FOREIGN KEY ([CategoryId1]) REFERENCES [Categories] ([Id]) ON DELETE CASCADE
+);
+2023-08-16 02:04:49.067 +06:00 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'ConcurrencyStamp', N'Name', N'NormalizedName') AND [object_id] = OBJECT_ID(N'[Roles]'))
+    SET IDENTITY_INSERT [Roles] ON;
+INSERT INTO [Roles] ([Id], [ConcurrencyStamp], [Name], [NormalizedName])
+VALUES (N'845c6c86-b451-48f0-8023-5678e43a18b8', N'845c6c86-b451-48f0-8023-5678e43a18b8', N'superadmin', N'SUPERADMIN'),
+(N'dd7c386d-cf8d-4f09-9605-d6c99a1f8297', N'dd7c386d-cf8d-4f09-9605-d6c99a1f8297', N'admin', N'ADMIN');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'ConcurrencyStamp', N'Name', N'NormalizedName') AND [object_id] = OBJECT_ID(N'[Roles]'))
+    SET IDENTITY_INSERT [Roles] OFF;
+2023-08-16 02:04:49.068 +06:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Products_CategoryId] ON [Products] ([CategoryId]);
+2023-08-16 02:04:49.400 +06:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Products_CategoryId1] ON [Products] ([CategoryId1]);
+2023-08-16 02:04:49.401 +06:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20230815200326_AddedNewEntity', N'7.0.10');
+2023-08-16 02:18:01.728 +06:00 [WRN] The foreign key property 'Product.CategoryId1' was created in shadow state because a conflicting property with the simple name 'CategoryId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2023-08-16 02:18:07.414 +06:00 [WRN] The foreign key property 'Product.CategoryId1' was created in shadow state because a conflicting property with the simple name 'CategoryId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2023-08-16 02:18:07.617 +06:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-08-16 02:18:07.641 +06:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [WebApiTemplateDB] SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+END;
+2023-08-16 02:18:07.652 +06:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+DROP DATABASE [WebApiTemplateDB];
+2023-08-16 02:34:05.867 +06:00 [WRN] The foreign key property 'Product.CategoryId1' was created in shadow state because a conflicting property with the simple name 'CategoryId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2023-08-16 02:34:05.964 +06:00 [WRN] The foreign key property 'Product.CategoryId1' was created in shadow state because a conflicting property with the simple name 'CategoryId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2023-08-16 02:36:04.274 +06:00 [WRN] The foreign key property 'Product.CategoryId1' was created in shadow state because a conflicting property with the simple name 'CategoryId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2023-08-16 02:36:04.377 +06:00 [WRN] The foreign key property 'Product.CategoryId1' was created in shadow state because a conflicting property with the simple name 'CategoryId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2023-08-16 02:36:13.370 +06:00 [WRN] The foreign key property 'Product.CategoryId1' was created in shadow state because a conflicting property with the simple name 'CategoryId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2023-08-16 02:36:13.465 +06:00 [WRN] The foreign key property 'Product.CategoryId1' was created in shadow state because a conflicting property with the simple name 'CategoryId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2023-08-16 02:37:13.562 +06:00 [WRN] The foreign key property 'Product.CategoryId1' was created in shadow state because a conflicting property with the simple name 'CategoryId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2023-08-16 02:37:13.657 +06:00 [WRN] The foreign key property 'Product.CategoryId1' was created in shadow state because a conflicting property with the simple name 'CategoryId' exists in the entity type, but is either not mapped, is already used for another relationship, or is incompatible with the associated primary key type. See https://aka.ms/efcore-relationships for information on mapping relationships in EF Core.
+2023-08-16 02:39:13.022 +06:00 [INF] Executed DbCommand (146ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+CREATE DATABASE [WebApiTemplateDB];
+2023-08-16 02:39:13.064 +06:00 [INF] Executed DbCommand (25ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [WebApiTemplateDB] SET READ_COMMITTED_SNAPSHOT ON;
+END;
+2023-08-16 02:39:13.074 +06:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-08-16 02:39:13.102 +06:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [__EFMigrationsHistory] (
+    [MigrationId] nvarchar(150) NOT NULL,
+    [ProductVersion] nvarchar(32) NOT NULL,
+    CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+);
+2023-08-16 02:39:13.103 +06:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-08-16 02:39:13.110 +06:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-08-16 02:39:13.112 +06:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-08-16 02:39:13.120 +06:00 [INF] Applying migration '20230815203857_AddedNewEntity'.
+2023-08-16 02:39:13.155 +06:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Categories] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(256) NOT NULL,
+    [Description] nvarchar(500) NULL,
+    [PhotoUrl] nvarchar(500) NULL,
+    CONSTRAINT [PK_Categories] PRIMARY KEY ([Id])
+);
+2023-08-16 02:39:13.156 +06:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Roles] (
+    [Id] nvarchar(450) NOT NULL,
+    [Name] nvarchar(256) NULL,
+    [NormalizedName] nvarchar(256) NULL,
+    [ConcurrencyStamp] nvarchar(max) NULL,
+    CONSTRAINT [PK_Roles] PRIMARY KEY ([Id])
+);
+2023-08-16 02:39:13.157 +06:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Users] (
+    [Id] nvarchar(450) NOT NULL,
+    [UserName] nvarchar(256) NULL,
+    [NormalizedUserName] nvarchar(256) NULL,
+    [Email] nvarchar(256) NULL,
+    [NormalizedEmail] nvarchar(256) NULL,
+    [EmailConfirmed] bit NOT NULL,
+    [PasswordHash] nvarchar(max) NULL,
+    [SecurityStamp] nvarchar(max) NULL,
+    [ConcurrencyStamp] nvarchar(max) NULL,
+    [PhoneNumber] nvarchar(max) NULL,
+    [PhoneNumberConfirmed] bit NOT NULL,
+    [TwoFactorEnabled] bit NOT NULL,
+    [LockoutEnd] datetimeoffset NULL,
+    [LockoutEnabled] bit NOT NULL,
+    [AccessFailedCount] int NOT NULL,
+    CONSTRAINT [PK_Users] PRIMARY KEY ([Id])
+);
+2023-08-16 02:39:13.160 +06:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Products] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(256) NOT NULL,
+    [Description] nvarchar(500) NULL,
+    [Price] decimal(10,2) NOT NULL,
+    [ExpireDate] datetime2 NULL,
+    [CategoryId] int NOT NULL,
+    [PhotoUrl] nvarchar(500) NULL,
+    CONSTRAINT [PK_Products] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Products_Categories_CategoryId] FOREIGN KEY ([CategoryId]) REFERENCES [Categories] ([Id]) ON DELETE NO ACTION
+);
+2023-08-16 02:39:13.161 +06:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [RoleClaims] (
+    [Id] int NOT NULL IDENTITY,
+    [RoleId] nvarchar(450) NOT NULL,
+    [ClaimType] nvarchar(max) NULL,
+    [ClaimValue] nvarchar(max) NULL,
+    CONSTRAINT [PK_RoleClaims] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_RoleClaims_Roles_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [Roles] ([Id]) ON DELETE CASCADE
+);
+2023-08-16 02:39:13.161 +06:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [UserClaims] (
+    [Id] int NOT NULL IDENTITY,
+    [UserId] nvarchar(450) NOT NULL,
+    [ClaimType] nvarchar(max) NULL,
+    [ClaimValue] nvarchar(max) NULL,
+    CONSTRAINT [PK_UserClaims] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_UserClaims_Users_UserId] FOREIGN KEY ([UserId]) REFERENCES [Users] ([Id]) ON DELETE CASCADE
+);
+2023-08-16 02:39:14.476 +06:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [UserLogins] (
+    [LoginProvider] nvarchar(450) NOT NULL,
+    [ProviderKey] nvarchar(450) NOT NULL,
+    [ProviderDisplayName] nvarchar(max) NULL,
+    [UserId] nvarchar(450) NOT NULL,
+    CONSTRAINT [PK_UserLogins] PRIMARY KEY ([LoginProvider], [ProviderKey]),
+    CONSTRAINT [FK_UserLogins_Users_UserId] FOREIGN KEY ([UserId]) REFERENCES [Users] ([Id]) ON DELETE CASCADE
+);
+2023-08-16 02:39:14.478 +06:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [UserRoles] (
+    [UserId] nvarchar(450) NOT NULL,
+    [RoleId] nvarchar(450) NOT NULL,
+    CONSTRAINT [PK_UserRoles] PRIMARY KEY ([UserId], [RoleId]),
+    CONSTRAINT [FK_UserRoles_Roles_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [Roles] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_UserRoles_Users_UserId] FOREIGN KEY ([UserId]) REFERENCES [Users] ([Id]) ON DELETE CASCADE
+);
+2023-08-16 02:39:14.478 +06:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [UserTokens] (
+    [UserId] nvarchar(450) NOT NULL,
+    [LoginProvider] nvarchar(450) NOT NULL,
+    [Name] nvarchar(450) NOT NULL,
+    [Value] nvarchar(max) NULL,
+    CONSTRAINT [PK_UserTokens] PRIMARY KEY ([UserId], [LoginProvider], [Name]),
+    CONSTRAINT [FK_UserTokens_Users_UserId] FOREIGN KEY ([UserId]) REFERENCES [Users] ([Id]) ON DELETE CASCADE
+);
+2023-08-16 02:39:14.491 +06:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'ConcurrencyStamp', N'Name', N'NormalizedName') AND [object_id] = OBJECT_ID(N'[Roles]'))
+    SET IDENTITY_INSERT [Roles] ON;
+INSERT INTO [Roles] ([Id], [ConcurrencyStamp], [Name], [NormalizedName])
+VALUES (N'845c6c86-b451-48f0-8023-5678e43a18b8', N'845c6c86-b451-48f0-8023-5678e43a18b8', N'superadmin', N'SUPERADMIN'),
+(N'dd7c386d-cf8d-4f09-9605-d6c99a1f8297', N'dd7c386d-cf8d-4f09-9605-d6c99a1f8297', N'admin', N'ADMIN');
+IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'ConcurrencyStamp', N'Name', N'NormalizedName') AND [object_id] = OBJECT_ID(N'[Roles]'))
+    SET IDENTITY_INSERT [Roles] OFF;
+2023-08-16 02:39:15.902 +06:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Products_CategoryId] ON [Products] ([CategoryId]);
+2023-08-16 02:39:15.903 +06:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_RoleClaims_RoleId] ON [RoleClaims] ([RoleId]);
+2023-08-16 02:39:15.906 +06:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [RoleNameIndex] ON [Roles] ([NormalizedName]) WHERE [NormalizedName] IS NOT NULL;
+2023-08-16 02:39:15.906 +06:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_UserClaims_UserId] ON [UserClaims] ([UserId]);
+2023-08-16 02:39:15.907 +06:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_UserLogins_UserId] ON [UserLogins] ([UserId]);
+2023-08-16 02:39:15.907 +06:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_UserRoles_RoleId] ON [UserRoles] ([RoleId]);
+2023-08-16 02:39:15.908 +06:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [EmailIndex] ON [Users] ([NormalizedEmail]);
+2023-08-16 02:39:15.908 +06:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [UserNameIndex] ON [Users] ([NormalizedUserName]) WHERE [NormalizedUserName] IS NOT NULL;
+2023-08-16 02:39:15.910 +06:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20230815203857_AddedNewEntity', N'7.0.10');
+2023-08-16 02:40:32.354 +06:00 [INF] User profile is available. Using 'C:\Users\Salman\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-08-16 02:40:32.528 +06:00 [INF] Now listening on: https://localhost:7226
+2023-08-16 02:40:32.529 +06:00 [INF] Now listening on: http://localhost:5145
+2023-08-16 02:40:32.531 +06:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-08-16 02:40:32.531 +06:00 [INF] Hosting environment: Development
+2023-08-16 02:40:32.532 +06:00 [INF] Content root path: D:\Programming\Projects\WebApiStartup\WebApiStartup
+2023-08-16 02:40:33.380 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger - -
+2023-08-16 02:40:33.429 +06:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The constraint reference ' ApiVersion' could not be resolved to a type. Register the constraint type with 'Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap'.
+   at Microsoft.AspNetCore.Routing.DefaultParameterPolicyFactory.Create(RoutePatternParameterPart parameter, String inlineText)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcherBuilder.CreateCandidate(Endpoint endpoint, Int32 score)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcherBuilder.CreateCandidates(IReadOnlyList`1 endpoints)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcherBuilder.AddNode(DfaNode node, DfaState[] states, Int32 exitDestination)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcherBuilder.AddNode(DfaNode node, DfaState[] states, Int32 exitDestination)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcherBuilder.AddNode(DfaNode node, DfaState[] states, Int32 exitDestination)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcherBuilder.AddNode(DfaNode node, DfaState[] states, Int32 exitDestination)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcherBuilder.AddNode(DfaNode node, DfaState[] states, Int32 exitDestination)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcherBuilder.Build()
+   at Microsoft.AspNetCore.Routing.Matching.DataSourceDependentMatcher.CreateMatcher(IReadOnlyList`1 endpoints)
+   at Microsoft.AspNetCore.Routing.DataSourceDependentCache`1.Initialize()
+   at System.Threading.LazyInitializer.EnsureInitializedCore[T](T& target, Boolean& initialized, Object& syncLock, Func`1 valueFactory)
+   at Microsoft.AspNetCore.Routing.Matching.DataSourceDependentMatcher..ctor(EndpointDataSource dataSource, Lifetime lifetime, Func`1 matcherBuilderFactory)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcherFactory.CreateMatcher(EndpointDataSource dataSource)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.InitializeCoreAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.<Invoke>g__AwaitMatcher|8_0(EndpointRoutingMiddleware middleware, HttpContext httpContext, Task`1 matcherTask)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-08-16 02:40:33.551 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger - - - 500 - text/html;+charset=utf-8 172.4764ms
+2023-08-16 02:40:33.564 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/_vs/browserLink - -
+2023-08-16 02:40:33.564 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/_framework/aspnetcore-browser-refresh.js - -
+2023-08-16 02:40:33.575 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 11.3823ms
+2023-08-16 02:40:33.613 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 49.1835ms
+2023-08-16 02:40:33.648 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/favicon.ico - -
+2023-08-16 02:40:33.651 +06:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The constraint reference ' ApiVersion' could not be resolved to a type. Register the constraint type with 'Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap'.
+   at Microsoft.AspNetCore.Routing.DefaultParameterPolicyFactory.Create(RoutePatternParameterPart parameter, String inlineText)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcherBuilder.CreateCandidate(Endpoint endpoint, Int32 score)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcherBuilder.CreateCandidates(IReadOnlyList`1 endpoints)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcherBuilder.AddNode(DfaNode node, DfaState[] states, Int32 exitDestination)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcherBuilder.AddNode(DfaNode node, DfaState[] states, Int32 exitDestination)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcherBuilder.AddNode(DfaNode node, DfaState[] states, Int32 exitDestination)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcherBuilder.AddNode(DfaNode node, DfaState[] states, Int32 exitDestination)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcherBuilder.AddNode(DfaNode node, DfaState[] states, Int32 exitDestination)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcherBuilder.Build()
+   at Microsoft.AspNetCore.Routing.Matching.DataSourceDependentMatcher.CreateMatcher(IReadOnlyList`1 endpoints)
+   at Microsoft.AspNetCore.Routing.DataSourceDependentCache`1.Initialize()
+   at System.Threading.LazyInitializer.EnsureInitializedCore[T](T& target, Boolean& initialized, Object& syncLock, Func`1 valueFactory)
+   at Microsoft.AspNetCore.Routing.Matching.DataSourceDependentMatcher..ctor(EndpointDataSource dataSource, Lifetime lifetime, Func`1 matcherBuilderFactory)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcherFactory.CreateMatcher(EndpointDataSource dataSource)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.InitializeCoreAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.<Invoke>g__AwaitMatcher|8_0(EndpointRoutingMiddleware middleware, HttpContext httpContext, Task`1 matcherTask)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-08-16 02:40:33.660 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/favicon.ico - - - 500 - text/plain;+charset=utf-8 12.1942ms
+2023-08-16 02:42:49.075 +06:00 [INF] User profile is available. Using 'C:\Users\Salman\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-08-16 02:42:49.188 +06:00 [INF] Now listening on: https://localhost:7226
+2023-08-16 02:42:49.188 +06:00 [INF] Now listening on: http://localhost:5145
+2023-08-16 02:42:49.191 +06:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-08-16 02:42:49.192 +06:00 [INF] Hosting environment: Development
+2023-08-16 02:42:49.192 +06:00 [INF] Content root path: D:\Programming\Projects\WebApiStartup\WebApiStartup
+2023-08-16 02:42:50.171 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger - -
+2023-08-16 02:42:50.214 +06:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The constraint reference ' ApiVersion' could not be resolved to a type. Register the constraint type with 'Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap'.
+   at Microsoft.AspNetCore.Routing.DefaultParameterPolicyFactory.Create(RoutePatternParameterPart parameter, String inlineText)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcherBuilder.CreateCandidate(Endpoint endpoint, Int32 score)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcherBuilder.CreateCandidates(IReadOnlyList`1 endpoints)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcherBuilder.AddNode(DfaNode node, DfaState[] states, Int32 exitDestination)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcherBuilder.AddNode(DfaNode node, DfaState[] states, Int32 exitDestination)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcherBuilder.AddNode(DfaNode node, DfaState[] states, Int32 exitDestination)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcherBuilder.AddNode(DfaNode node, DfaState[] states, Int32 exitDestination)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcherBuilder.AddNode(DfaNode node, DfaState[] states, Int32 exitDestination)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcherBuilder.Build()
+   at Microsoft.AspNetCore.Routing.Matching.DataSourceDependentMatcher.CreateMatcher(IReadOnlyList`1 endpoints)
+   at Microsoft.AspNetCore.Routing.DataSourceDependentCache`1.Initialize()
+   at System.Threading.LazyInitializer.EnsureInitializedCore[T](T& target, Boolean& initialized, Object& syncLock, Func`1 valueFactory)
+   at Microsoft.AspNetCore.Routing.Matching.DataSourceDependentMatcher..ctor(EndpointDataSource dataSource, Lifetime lifetime, Func`1 matcherBuilderFactory)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcherFactory.CreateMatcher(EndpointDataSource dataSource)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.InitializeCoreAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.<Invoke>g__AwaitMatcher|8_0(EndpointRoutingMiddleware middleware, HttpContext httpContext, Task`1 matcherTask)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-08-16 02:42:50.363 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger - - - 500 - text/html;+charset=utf-8 194.7325ms
+2023-08-16 02:42:50.381 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/_vs/browserLink - -
+2023-08-16 02:42:50.381 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/_framework/aspnetcore-browser-refresh.js - -
+2023-08-16 02:42:50.392 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 10.4601ms
+2023-08-16 02:42:50.444 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 62.5214ms
+2023-08-16 02:42:50.529 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/favicon.ico - -
+2023-08-16 02:42:50.532 +06:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The constraint reference ' ApiVersion' could not be resolved to a type. Register the constraint type with 'Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap'.
+   at Microsoft.AspNetCore.Routing.DefaultParameterPolicyFactory.Create(RoutePatternParameterPart parameter, String inlineText)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcherBuilder.CreateCandidate(Endpoint endpoint, Int32 score)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcherBuilder.CreateCandidates(IReadOnlyList`1 endpoints)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcherBuilder.AddNode(DfaNode node, DfaState[] states, Int32 exitDestination)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcherBuilder.AddNode(DfaNode node, DfaState[] states, Int32 exitDestination)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcherBuilder.AddNode(DfaNode node, DfaState[] states, Int32 exitDestination)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcherBuilder.AddNode(DfaNode node, DfaState[] states, Int32 exitDestination)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcherBuilder.AddNode(DfaNode node, DfaState[] states, Int32 exitDestination)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcherBuilder.Build()
+   at Microsoft.AspNetCore.Routing.Matching.DataSourceDependentMatcher.CreateMatcher(IReadOnlyList`1 endpoints)
+   at Microsoft.AspNetCore.Routing.DataSourceDependentCache`1.Initialize()
+   at System.Threading.LazyInitializer.EnsureInitializedCore[T](T& target, Boolean& initialized, Object& syncLock, Func`1 valueFactory)
+   at Microsoft.AspNetCore.Routing.Matching.DataSourceDependentMatcher..ctor(EndpointDataSource dataSource, Lifetime lifetime, Func`1 matcherBuilderFactory)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcherFactory.CreateMatcher(EndpointDataSource dataSource)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.InitializeCoreAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.<Invoke>g__AwaitMatcher|8_0(EndpointRoutingMiddleware middleware, HttpContext httpContext, Task`1 matcherTask)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-08-16 02:42:50.541 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/favicon.ico - - - 500 - text/plain;+charset=utf-8 12.5786ms
+2023-08-16 02:45:30.958 +06:00 [INF] User profile is available. Using 'C:\Users\Salman\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-08-16 02:45:31.079 +06:00 [INF] Now listening on: https://localhost:7226
+2023-08-16 02:45:31.080 +06:00 [INF] Now listening on: http://localhost:5145
+2023-08-16 02:45:31.082 +06:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-08-16 02:45:31.082 +06:00 [INF] Hosting environment: Development
+2023-08-16 02:45:31.083 +06:00 [INF] Content root path: D:\Programming\Projects\WebApiStartup\WebApiStartup
+2023-08-16 02:45:31.719 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger - -
+2023-08-16 02:45:31.765 +06:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The constraint reference ' ApiVersion' could not be resolved to a type. Register the constraint type with 'Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap'.
+   at Microsoft.AspNetCore.Routing.DefaultParameterPolicyFactory.Create(RoutePatternParameterPart parameter, String inlineText)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcherBuilder.CreateCandidate(Endpoint endpoint, Int32 score)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcherBuilder.CreateCandidates(IReadOnlyList`1 endpoints)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcherBuilder.AddNode(DfaNode node, DfaState[] states, Int32 exitDestination)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcherBuilder.AddNode(DfaNode node, DfaState[] states, Int32 exitDestination)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcherBuilder.AddNode(DfaNode node, DfaState[] states, Int32 exitDestination)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcherBuilder.AddNode(DfaNode node, DfaState[] states, Int32 exitDestination)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcherBuilder.AddNode(DfaNode node, DfaState[] states, Int32 exitDestination)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcherBuilder.Build()
+   at Microsoft.AspNetCore.Routing.Matching.DataSourceDependentMatcher.CreateMatcher(IReadOnlyList`1 endpoints)
+   at Microsoft.AspNetCore.Routing.DataSourceDependentCache`1.Initialize()
+   at System.Threading.LazyInitializer.EnsureInitializedCore[T](T& target, Boolean& initialized, Object& syncLock, Func`1 valueFactory)
+   at Microsoft.AspNetCore.Routing.Matching.DataSourceDependentMatcher..ctor(EndpointDataSource dataSource, Lifetime lifetime, Func`1 matcherBuilderFactory)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcherFactory.CreateMatcher(EndpointDataSource dataSource)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.InitializeCoreAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.<Invoke>g__AwaitMatcher|8_0(EndpointRoutingMiddleware middleware, HttpContext httpContext, Task`1 matcherTask)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-08-16 02:45:31.889 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger - - - 500 - text/html;+charset=utf-8 172.1841ms
+2023-08-16 02:45:31.907 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/_framework/aspnetcore-browser-refresh.js - -
+2023-08-16 02:45:31.907 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/_vs/browserLink - -
+2023-08-16 02:45:31.916 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 8.7351ms
+2023-08-16 02:45:31.954 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 47.6080ms
+2023-08-16 02:45:31.989 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/favicon.ico - -
+2023-08-16 02:45:31.992 +06:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The constraint reference ' ApiVersion' could not be resolved to a type. Register the constraint type with 'Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap'.
+   at Microsoft.AspNetCore.Routing.DefaultParameterPolicyFactory.Create(RoutePatternParameterPart parameter, String inlineText)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcherBuilder.CreateCandidate(Endpoint endpoint, Int32 score)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcherBuilder.CreateCandidates(IReadOnlyList`1 endpoints)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcherBuilder.AddNode(DfaNode node, DfaState[] states, Int32 exitDestination)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcherBuilder.AddNode(DfaNode node, DfaState[] states, Int32 exitDestination)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcherBuilder.AddNode(DfaNode node, DfaState[] states, Int32 exitDestination)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcherBuilder.AddNode(DfaNode node, DfaState[] states, Int32 exitDestination)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcherBuilder.AddNode(DfaNode node, DfaState[] states, Int32 exitDestination)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcherBuilder.Build()
+   at Microsoft.AspNetCore.Routing.Matching.DataSourceDependentMatcher.CreateMatcher(IReadOnlyList`1 endpoints)
+   at Microsoft.AspNetCore.Routing.DataSourceDependentCache`1.Initialize()
+   at System.Threading.LazyInitializer.EnsureInitializedCore[T](T& target, Boolean& initialized, Object& syncLock, Func`1 valueFactory)
+   at Microsoft.AspNetCore.Routing.Matching.DataSourceDependentMatcher..ctor(EndpointDataSource dataSource, Lifetime lifetime, Func`1 matcherBuilderFactory)
+   at Microsoft.AspNetCore.Routing.Matching.DfaMatcherFactory.CreateMatcher(EndpointDataSource dataSource)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.InitializeCoreAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.<Invoke>g__AwaitMatcher|8_0(EndpointRoutingMiddleware middleware, HttpContext httpContext, Task`1 matcherTask)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-08-16 02:45:31.999 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/favicon.ico - - - 500 - text/plain;+charset=utf-8 10.4162ms
+2023-08-16 02:49:04.875 +06:00 [INF] User profile is available. Using 'C:\Users\Salman\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-08-16 02:49:05.019 +06:00 [INF] Now listening on: https://localhost:7226
+2023-08-16 02:49:05.020 +06:00 [INF] Now listening on: http://localhost:5145
+2023-08-16 02:49:05.022 +06:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-08-16 02:49:05.023 +06:00 [INF] Hosting environment: Development
+2023-08-16 02:49:05.024 +06:00 [INF] Content root path: D:\Programming\Projects\WebApiStartup\WebApiStartup
+2023-08-16 02:49:05.486 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger - -
+2023-08-16 02:49:17.608 +06:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentException: An item with the same key has already been added. Key: v1
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at Microsoft.Extensions.DependencyInjection.SwaggerGenOptionsExtensions.SwaggerDoc(SwaggerGenOptions swaggerGenOptions, String name, OpenApiInfo info)
+   at WebApiStartup.ConfigureSwaggerOptions.Configure(SwaggerGenOptions options) in D:\Programming\Projects\WebApiStartup\WebApiStartup\ConfigureSwaggerOptions.cs:line 25
+   at WebApiStartup.ConfigureSwaggerOptions.Configure(String name, SwaggerGenOptions options) in D:\Programming\Projects\WebApiStartup\WebApiStartup\ConfigureSwaggerOptions.cs:line 18
+   at Microsoft.Extensions.Options.OptionsFactory`1.Create(String name)
+   at Microsoft.Extensions.Options.UnnamedOptionsManager`1.get_Value()
+   at Swashbuckle.AspNetCore.SwaggerGen.ConfigureSwaggerGeneratorOptions..ctor(IOptions`1 swaggerGenOptionsAccessor, IServiceProvider serviceProvider, IWebHostEnvironment hostingEnv)
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.ConstructorInvoker.Invoke(Object obj, IntPtr* args, BindingFlags invokeAttr)
+   at System.Reflection.RuntimeConstructorInfo.Invoke(BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitIEnumerable(IEnumerableCallSite enumerableCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(Type serviceType)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at Microsoft.Extensions.DependencyInjection.SwaggerGenServiceCollectionExtensions.<>c.<AddSwaggerGen>b__0_1(IServiceProvider s)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.DynamicServiceProviderEngine.<>c__DisplayClass2_0.<RealizeService>b__0(ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType, ServiceProviderEngineScope serviceProviderEngineScope)
+   at lambda_method1(Closure, Object, HttpContext, IServiceProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-08-16 02:49:17.781 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger - - - 500 - text/html;+charset=utf-8 12295.8869ms
+2023-08-16 02:49:17.786 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/_vs/browserLink - -
+2023-08-16 02:49:17.786 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/_framework/aspnetcore-browser-refresh.js - -
+2023-08-16 02:49:17.797 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 10.8248ms
+2023-08-16 02:49:17.832 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 46.0577ms
+2023-08-16 02:49:17.867 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/favicon.ico - -
+2023-08-16 02:50:21.923 +06:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentException: An item with the same key has already been added. Key: v1
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at Microsoft.Extensions.DependencyInjection.SwaggerGenOptionsExtensions.SwaggerDoc(SwaggerGenOptions swaggerGenOptions, String name, OpenApiInfo info)
+   at WebApiStartup.ConfigureSwaggerOptions.Configure(SwaggerGenOptions options) in D:\Programming\Projects\WebApiStartup\WebApiStartup\ConfigureSwaggerOptions.cs:line 25
+   at WebApiStartup.ConfigureSwaggerOptions.Configure(String name, SwaggerGenOptions options) in D:\Programming\Projects\WebApiStartup\WebApiStartup\ConfigureSwaggerOptions.cs:line 18
+   at Microsoft.Extensions.Options.OptionsFactory`1.Create(String name)
+   at Microsoft.Extensions.Options.UnnamedOptionsManager`1.get_Value()
+   at Swashbuckle.AspNetCore.SwaggerGen.ConfigureSwaggerGeneratorOptions..ctor(IOptions`1 swaggerGenOptionsAccessor, IServiceProvider serviceProvider, IWebHostEnvironment hostingEnv)
+   at InvokeStub_ConfigureSwaggerGeneratorOptions..ctor(Object, Object, IntPtr*)
+   at System.Reflection.ConstructorInvoker.Invoke(Object obj, IntPtr* args, BindingFlags invokeAttr)
+   at System.Reflection.RuntimeConstructorInfo.Invoke(BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitIEnumerable(IEnumerableCallSite enumerableCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(Type serviceType)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at Microsoft.Extensions.DependencyInjection.SwaggerGenServiceCollectionExtensions.<>c.<AddSwaggerGen>b__0_1(IServiceProvider s)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.DynamicServiceProviderEngine.<>c__DisplayClass2_0.<RealizeService>b__0(ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType, ServiceProviderEngineScope serviceProviderEngineScope)
+   at lambda_method1(Closure, Object, HttpContext, IServiceProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-08-16 02:50:21.979 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/favicon.ico - - - 500 - text/plain;+charset=utf-8 64112.3594ms
+2023-08-16 02:56:00.187 +06:00 [INF] User profile is available. Using 'C:\Users\Salman\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-08-16 02:56:00.335 +06:00 [INF] Now listening on: https://localhost:7226
+2023-08-16 02:56:00.336 +06:00 [INF] Now listening on: http://localhost:5145
+2023-08-16 02:56:00.338 +06:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-08-16 02:56:00.339 +06:00 [INF] Hosting environment: Development
+2023-08-16 02:56:00.339 +06:00 [INF] Content root path: D:\Programming\Projects\WebApiStartup\WebApiStartup
+2023-08-16 02:56:01.063 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger - -
+2023-08-16 02:56:41.371 +06:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentException: An item with the same key has already been added. Key: v1
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at Microsoft.Extensions.DependencyInjection.SwaggerGenOptionsExtensions.SwaggerDoc(SwaggerGenOptions swaggerGenOptions, String name, OpenApiInfo info)
+   at WebApiStartup.ConfigureSwaggerOptions.Configure(SwaggerGenOptions options) in D:\Programming\Projects\WebApiStartup\WebApiStartup\ConfigureSwaggerOptions.cs:line 25
+   at WebApiStartup.ConfigureSwaggerOptions.Configure(String name, SwaggerGenOptions options) in D:\Programming\Projects\WebApiStartup\WebApiStartup\ConfigureSwaggerOptions.cs:line 18
+   at Microsoft.Extensions.Options.OptionsFactory`1.Create(String name)
+   at Microsoft.Extensions.Options.UnnamedOptionsManager`1.get_Value()
+   at Swashbuckle.AspNetCore.SwaggerGen.ConfigureSwaggerGeneratorOptions..ctor(IOptions`1 swaggerGenOptionsAccessor, IServiceProvider serviceProvider, IWebHostEnvironment hostingEnv)
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.ConstructorInvoker.Invoke(Object obj, IntPtr* args, BindingFlags invokeAttr)
+   at System.Reflection.RuntimeConstructorInfo.Invoke(BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitIEnumerable(IEnumerableCallSite enumerableCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(Type serviceType)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at Microsoft.Extensions.DependencyInjection.SwaggerGenServiceCollectionExtensions.<>c.<AddSwaggerGen>b__0_1(IServiceProvider s)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.DynamicServiceProviderEngine.<>c__DisplayClass2_0.<RealizeService>b__0(ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType, ServiceProviderEngineScope serviceProviderEngineScope)
+   at lambda_method1(Closure, Object, HttpContext, IServiceProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-08-16 02:56:41.544 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger - - - 500 - text/html;+charset=utf-8 40482.5930ms
+2023-08-16 02:56:41.550 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/_framework/aspnetcore-browser-refresh.js - -
+2023-08-16 02:56:41.550 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/_vs/browserLink - -
+2023-08-16 02:56:41.563 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 10.2179ms
+2023-08-16 02:56:41.603 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 53.6455ms
+2023-08-16 02:56:41.638 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/favicon.ico - -
+2023-08-16 20:14:02.429 +06:00 [INF] User profile is available. Using 'C:\Users\Salman\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-08-16 20:14:02.475 +06:00 [INF] Creating key {86694988-0393-4cce-bd9c-9c803c450455} with creation date 2023-08-16 14:14:02Z, activation date 2023-08-18 12:32:48Z, and expiration date 2023-11-14 14:14:02Z.
+2023-08-16 20:14:02.485 +06:00 [INF] Writing data to file 'C:\Users\Salman\AppData\Local\ASP.NET\DataProtection-Keys\key-86694988-0393-4cce-bd9c-9c803c450455.xml'.
+2023-08-16 20:14:02.592 +06:00 [INF] Now listening on: https://localhost:7226
+2023-08-16 20:14:02.593 +06:00 [INF] Now listening on: http://localhost:5145
+2023-08-16 20:14:02.594 +06:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-08-16 20:14:02.595 +06:00 [INF] Hosting environment: Development
+2023-08-16 20:14:02.596 +06:00 [INF] Content root path: D:\Programming\Projects\WebApiStartup\WebApiStartup
+2023-08-16 20:14:03.305 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger - -
+2023-08-16 20:16:42.221 +06:00 [INF] User profile is available. Using 'C:\Users\Salman\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-08-16 20:16:42.354 +06:00 [INF] Now listening on: https://localhost:7226
+2023-08-16 20:16:42.355 +06:00 [INF] Now listening on: http://localhost:5145
+2023-08-16 20:16:42.356 +06:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-08-16 20:16:42.357 +06:00 [INF] Hosting environment: Development
+2023-08-16 20:16:42.358 +06:00 [INF] Content root path: D:\Programming\Projects\WebApiStartup\WebApiStartup
+2023-08-16 20:16:42.864 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger - -
+2023-08-16 20:18:02.544 +06:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentException: An item with the same key has already been added. Key: v1
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at Microsoft.Extensions.DependencyInjection.SwaggerGenOptionsExtensions.SwaggerDoc(SwaggerGenOptions swaggerGenOptions, String name, OpenApiInfo info)
+   at WebApiStartup.ConfigureSwaggerOptions.Configure(SwaggerGenOptions options) in D:\Programming\Projects\WebApiStartup\WebApiStartup\ConfigureSwaggerOptions.cs:line 25
+   at WebApiStartup.ConfigureSwaggerOptions.Configure(String name, SwaggerGenOptions options) in D:\Programming\Projects\WebApiStartup\WebApiStartup\ConfigureSwaggerOptions.cs:line 18
+   at Microsoft.Extensions.Options.OptionsFactory`1.Create(String name)
+   at Microsoft.Extensions.Options.UnnamedOptionsManager`1.get_Value()
+   at Swashbuckle.AspNetCore.SwaggerGen.ConfigureSwaggerGeneratorOptions..ctor(IOptions`1 swaggerGenOptionsAccessor, IServiceProvider serviceProvider, IWebHostEnvironment hostingEnv)
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.ConstructorInvoker.Invoke(Object obj, IntPtr* args, BindingFlags invokeAttr)
+   at System.Reflection.RuntimeConstructorInfo.Invoke(BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitIEnumerable(IEnumerableCallSite enumerableCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(Type serviceType)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at Microsoft.Extensions.DependencyInjection.SwaggerGenServiceCollectionExtensions.<>c.<AddSwaggerGen>b__0_1(IServiceProvider s)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.DynamicServiceProviderEngine.<>c__DisplayClass2_0.<RealizeService>b__0(ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType, ServiceProviderEngineScope serviceProviderEngineScope)
+   at lambda_method1(Closure, Object, HttpContext, IServiceProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-08-16 20:18:02.744 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger - - - 500 - text/html;+charset=utf-8 79880.5731ms
+2023-08-16 20:18:02.770 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/_vs/browserLink - -
+2023-08-16 20:18:02.770 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/_framework/aspnetcore-browser-refresh.js - -
+2023-08-16 20:18:02.784 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 13.1288ms
+2023-08-16 20:18:02.837 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 66.0288ms
+2023-08-16 20:18:02.868 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/favicon.ico - -
+2023-08-16 20:18:07.047 +06:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentException: An item with the same key has already been added. Key: v1
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at Microsoft.Extensions.DependencyInjection.SwaggerGenOptionsExtensions.SwaggerDoc(SwaggerGenOptions swaggerGenOptions, String name, OpenApiInfo info)
+   at WebApiStartup.ConfigureSwaggerOptions.Configure(SwaggerGenOptions options) in D:\Programming\Projects\WebApiStartup\WebApiStartup\ConfigureSwaggerOptions.cs:line 25
+   at WebApiStartup.ConfigureSwaggerOptions.Configure(String name, SwaggerGenOptions options) in D:\Programming\Projects\WebApiStartup\WebApiStartup\ConfigureSwaggerOptions.cs:line 18
+   at Microsoft.Extensions.Options.OptionsFactory`1.Create(String name)
+   at Microsoft.Extensions.Options.UnnamedOptionsManager`1.get_Value()
+   at Swashbuckle.AspNetCore.SwaggerGen.ConfigureSwaggerGeneratorOptions..ctor(IOptions`1 swaggerGenOptionsAccessor, IServiceProvider serviceProvider, IWebHostEnvironment hostingEnv)
+   at InvokeStub_ConfigureSwaggerGeneratorOptions..ctor(Object, Object, IntPtr*)
+   at System.Reflection.ConstructorInvoker.Invoke(Object obj, IntPtr* args, BindingFlags invokeAttr)
+   at System.Reflection.RuntimeConstructorInfo.Invoke(BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitIEnumerable(IEnumerableCallSite enumerableCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(Type serviceType)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at Microsoft.Extensions.DependencyInjection.SwaggerGenServiceCollectionExtensions.<>c.<AddSwaggerGen>b__0_1(IServiceProvider s)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.DynamicServiceProviderEngine.<>c__DisplayClass2_0.<RealizeService>b__0(ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(Type serviceType, ServiceProviderEngineScope serviceProviderEngineScope)
+   at lambda_method1(Closure, Object, HttpContext, IServiceProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-08-16 20:18:07.062 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/favicon.ico - - - 500 - text/plain;+charset=utf-8 4194.0924ms
+2023-08-16 20:18:42.923 +06:00 [INF] User profile is available. Using 'C:\Users\Salman\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-08-16 20:18:43.050 +06:00 [INF] Now listening on: https://localhost:7226
+2023-08-16 20:18:43.051 +06:00 [INF] Now listening on: http://localhost:5145
+2023-08-16 20:18:43.052 +06:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-08-16 20:18:43.053 +06:00 [INF] Hosting environment: Development
+2023-08-16 20:18:43.054 +06:00 [INF] Content root path: D:\Programming\Projects\WebApiStartup\WebApiStartup
+2023-08-16 20:18:43.487 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger - -
+2023-08-16 20:18:51.560 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger - - - 301 0 - 8075.0787ms
+2023-08-16 20:18:51.575 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/index.html - -
+2023-08-16 20:18:51.711 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/swagger-ui.css - -
+2023-08-16 20:18:51.723 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/swagger-ui-bundle.js - -
+2023-08-16 20:18:51.723 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/swagger-ui-standalone-preset.js - -
+2023-08-16 20:18:51.723 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/_vs/browserLink - -
+2023-08-16 20:18:51.724 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/_framework/aspnetcore-browser-refresh.js - -
+2023-08-16 20:18:51.723 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/index.html - - - 200 - text/html;charset=utf-8 147.9308ms
+2023-08-16 20:18:51.755 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 30.8991ms
+2023-08-16 20:18:51.764 +06:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2023-08-16 20:18:51.764 +06:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2023-08-16 20:18:51.766 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/swagger-ui-standalone-preset.js - - - 200 339486 text/javascript 42.7501ms
+2023-08-16 20:18:51.769 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/swagger-ui.css - - - 200 143943 text/css 57.5017ms
+2023-08-16 20:18:51.776 +06:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2023-08-16 20:18:51.779 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/swagger-ui-bundle.js - - - 200 1096145 text/javascript 56.5433ms
+2023-08-16 20:18:51.793 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 70.1980ms
+2023-08-16 20:18:51.892 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - -
+2023-08-16 20:18:51.901 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/favicon-32x32.png - -
+2023-08-16 20:18:51.902 +06:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2023-08-16 20:18:51.904 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/favicon-32x32.png - - - 200 628 image/png 3.6453ms
+2023-08-16 20:18:51.922 +06:00 [ERR] An unhandled exception has occurred while executing the request.
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Conflicting method/path combination "POST api/Account" for actions - WebApiStartup.Controllers.AccountController.Register (WebApiStartup),WebApiStartup.Controllers.AccountController.Login (WebApiStartup). Actions require a unique method/path combination for Swagger/OpenAPI 3.0. Use ConflictingActionsResolver as a workaround
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerDocumentWithoutFilters(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-08-16 20:18:51.950 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - - - 500 - text/plain;+charset=utf-8 58.1763ms
+2023-08-16 20:20:39.531 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - -
+2023-08-16 20:20:39.537 +06:00 [ERR] An unhandled exception has occurred while executing the request.
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Conflicting method/path combination "POST api/Account" for actions - WebApiStartup.Controllers.AccountController.Register (WebApiStartup),WebApiStartup.Controllers.AccountController.Login (WebApiStartup). Actions require a unique method/path combination for Swagger/OpenAPI 3.0. Use ConflictingActionsResolver as a workaround
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerDocumentWithoutFilters(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-08-16 20:20:39.572 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - - - 500 - text/html;+charset=utf-8 42.0711ms
+2023-08-16 20:20:39.592 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/_vs/browserLink - -
+2023-08-16 20:20:39.592 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/_framework/aspnetcore-browser-refresh.js - -
+2023-08-16 20:20:39.596 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 4.3363ms
+2023-08-16 20:20:39.631 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 38.9607ms
+2023-08-16 20:20:39.660 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/favicon.ico - -
+2023-08-16 20:20:40.164 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/favicon.ico - - - 404 0 - 504.5102ms
+2023-08-16 20:21:41.537 +06:00 [INF] User profile is available. Using 'C:\Users\Salman\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-08-16 20:21:41.654 +06:00 [INF] Now listening on: https://localhost:7226
+2023-08-16 20:21:41.655 +06:00 [INF] Now listening on: http://localhost:5145
+2023-08-16 20:21:41.657 +06:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-08-16 20:21:41.657 +06:00 [INF] Hosting environment: Development
+2023-08-16 20:21:41.658 +06:00 [INF] Content root path: D:\Programming\Projects\WebApiStartup\WebApiStartup
+2023-08-16 20:21:42.078 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/index.html - -
+2023-08-16 20:22:00.429 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/index.html - - - 200 - text/html;charset=utf-8 18351.7417ms
+2023-08-16 20:22:00.437 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/_vs/browserLink - -
+2023-08-16 20:22:00.437 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/_framework/aspnetcore-browser-refresh.js - -
+2023-08-16 20:22:00.450 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 13.0177ms
+2023-08-16 20:22:00.493 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 56.2858ms
+2023-08-16 20:22:00.577 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - -
+2023-08-16 20:22:00.702 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 125.6417ms
+2023-08-16 20:57:45.035 +06:00 [INF] User profile is available. Using 'C:\Users\Salman\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-08-16 20:57:45.151 +06:00 [INF] Now listening on: https://localhost:7226
+2023-08-16 20:57:45.152 +06:00 [INF] Now listening on: http://localhost:5145
+2023-08-16 20:57:45.154 +06:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-08-16 20:57:45.154 +06:00 [INF] Hosting environment: Development
+2023-08-16 20:57:45.155 +06:00 [INF] Content root path: D:\Programming\Projects\WebApiStartup\WebApiStartup
+2023-08-16 20:57:45.565 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/index.html - -
+2023-08-16 20:57:45.611 +06:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Swashbuckle.AspNetCore.Swagger.ISwaggerProvider' while attempting to Invoke middleware 'Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware'.
+   at lambda_method1(Closure, Object, HttpContext, IServiceProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-08-16 20:57:45.718 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/index.html - - - 500 - text/html;+charset=utf-8 153.9434ms
+2023-08-16 20:57:45.731 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/_framework/aspnetcore-browser-refresh.js - -
+2023-08-16 20:57:45.731 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/_vs/browserLink - -
+2023-08-16 20:57:45.738 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 7.5661ms
+2023-08-16 20:57:45.771 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 40.3828ms
+2023-08-16 20:57:45.803 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/favicon.ico - -
+2023-08-16 20:57:45.805 +06:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Swashbuckle.AspNetCore.Swagger.ISwaggerProvider' while attempting to Invoke middleware 'Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware'.
+   at lambda_method1(Closure, Object, HttpContext, IServiceProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-08-16 20:57:45.808 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/favicon.ico - - - 500 - text/plain;+charset=utf-8 4.9953ms
+2023-08-16 20:59:03.144 +06:00 [INF] User profile is available. Using 'C:\Users\Salman\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-08-16 20:59:03.273 +06:00 [INF] Now listening on: https://localhost:7226
+2023-08-16 20:59:03.274 +06:00 [INF] Now listening on: http://localhost:5145
+2023-08-16 20:59:03.276 +06:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-08-16 20:59:03.276 +06:00 [INF] Hosting environment: Development
+2023-08-16 20:59:03.277 +06:00 [INF] Content root path: D:\Programming\Projects\WebApiStartup\WebApiStartup
+2023-08-16 20:59:03.681 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/index.html - -
+2023-08-16 20:59:03.848 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/index.html - - - 200 - text/html;charset=utf-8 168.6778ms
+2023-08-16 20:59:03.859 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/_vs/browserLink - -
+2023-08-16 20:59:03.859 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/_framework/aspnetcore-browser-refresh.js - -
+2023-08-16 20:59:03.868 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 8.9328ms
+2023-08-16 20:59:03.899 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 39.6509ms
+2023-08-16 20:59:03.948 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - -
+2023-08-16 20:59:04.032 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 84.4672ms
+2023-08-16 21:00:18.607 +06:00 [INF] User profile is available. Using 'C:\Users\Salman\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-08-16 21:00:18.745 +06:00 [INF] Now listening on: https://localhost:7226
+2023-08-16 21:00:18.746 +06:00 [INF] Now listening on: http://localhost:5145
+2023-08-16 21:00:18.748 +06:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-08-16 21:00:18.749 +06:00 [INF] Hosting environment: Development
+2023-08-16 21:00:18.750 +06:00 [INF] Content root path: D:\Programming\Projects\WebApiStartup\WebApiStartup
+2023-08-16 21:00:19.377 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/index.html - -
+2023-08-16 21:00:19.542 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/index.html - - - 200 - text/html;charset=utf-8 167.3485ms
+2023-08-16 21:00:19.555 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/_framework/aspnetcore-browser-refresh.js - -
+2023-08-16 21:00:19.555 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/_vs/browserLink - -
+2023-08-16 21:00:19.565 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 8.9629ms
+2023-08-16 21:00:19.599 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 43.5809ms
+2023-08-16 21:00:19.654 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - -
+2023-08-16 21:00:19.742 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 87.1758ms
+2023-08-16 21:01:16.377 +06:00 [INF] Request starting HTTP/2 POST https://localhost:7226/api/Account/Register?api-version=v1 application/json 111
+2023-08-16 21:01:16.441 +06:00 [INF] Executing endpoint 'WebApiStartup.Controllers.AccountController.Register (WebApiStartup)'
+2023-08-16 21:01:16.467 +06:00 [INF] Route matched with {action = "Register", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(WebApiStartup.DTOs.RegisterRequestDTO) on controller WebApiStartup.Controllers.AccountController (WebApiStartup).
+2023-08-16 21:01:24.744 +06:00 [INF] Executed DbCommand (65ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2023-08-16 21:01:24.930 +06:00 [INF] Executed DbCommand (4ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (Size = 256), @p4='?' (DbType = Boolean), @p5='?' (DbType = Boolean), @p6='?' (DbType = DateTimeOffset), @p7='?' (Size = 256), @p8='?' (Size = 256), @p9='?' (Size = 4000), @p10='?' (Size = 4000), @p11='?' (DbType = Boolean), @p12='?' (Size = 4000), @p13='?' (DbType = Boolean), @p14='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Id], [AccessFailedCount], [ConcurrencyStamp], [Email], [EmailConfirmed], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [SecurityStamp], [TwoFactorEnabled], [UserName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14);
+2023-08-16 21:01:27.096 +06:00 [INF] A new user (user) register successfully
+2023-08-16 21:01:36.179 +06:00 [INF] Executed DbCommand (16ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [r].[Id], [r].[ConcurrencyStamp], [r].[Name], [r].[NormalizedName]
+FROM [Roles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedRoleName_0
+2023-08-16 21:01:36.219 +06:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (Size = 450), @__p_1='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[RoleId]
+FROM [UserRoles] AS [u]
+WHERE [u].[UserId] = @__p_0 AND [u].[RoleId] = @__p_1
+2023-08-16 21:01:36.227 +06:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [r].[Id], [r].[ConcurrencyStamp], [r].[Name], [r].[NormalizedName]
+FROM [Roles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedRoleName_0
+2023-08-16 21:01:36.242 +06:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [r].[Id], [r].[ConcurrencyStamp], [r].[Name], [r].[NormalizedName]
+FROM [Roles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedRoleName_0
+2023-08-16 21:01:36.250 +06:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 450), @__p_1='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[RoleId]
+FROM [UserRoles] AS [u]
+WHERE [u].[UserId] = @__p_0 AND [u].[RoleId] = @__p_1
+2023-08-16 21:01:36.253 +06:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [r].[Id], [r].[ConcurrencyStamp], [r].[Name], [r].[NormalizedName]
+FROM [Roles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedRoleName_0
+2023-08-16 21:01:36.260 +06:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2023-08-16 21:01:36.305 +06:00 [INF] Executed DbCommand (4ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 450), @p2='?' (Size = 450), @p3='?' (Size = 450), @p18='?' (Size = 450), @p4='?' (DbType = Int32), @p5='?' (Size = 4000), @p19='?' (Size = 4000), @p6='?' (Size = 256), @p7='?' (DbType = Boolean), @p8='?' (DbType = Boolean), @p9='?' (DbType = DateTimeOffset), @p10='?' (Size = 256), @p11='?' (Size = 256), @p12='?' (Size = 4000), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 4000), @p16='?' (DbType = Boolean), @p17='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [UserRoles] ([RoleId], [UserId])
+VALUES (@p0, @p1),
+(@p2, @p3);
+UPDATE [Users] SET [AccessFailedCount] = @p4, [ConcurrencyStamp] = @p5, [Email] = @p6, [EmailConfirmed] = @p7, [LockoutEnabled] = @p8, [LockoutEnd] = @p9, [NormalizedEmail] = @p10, [NormalizedUserName] = @p11, [PasswordHash] = @p12, [PhoneNumber] = @p13, [PhoneNumberConfirmed] = @p14, [SecurityStamp] = @p15, [TwoFactorEnabled] = @p16, [UserName] = @p17
+OUTPUT 1
+WHERE [Id] = @p18 AND [ConcurrencyStamp] = @p19;
+2023-08-16 21:01:39.348 +06:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2023-08-16 21:01:39.354 +06:00 [INF] Executed action WebApiStartup.Controllers.AccountController.Register (WebApiStartup) in 22882.2177ms
+2023-08-16 21:01:39.355 +06:00 [INF] Executed endpoint 'WebApiStartup.Controllers.AccountController.Register (WebApiStartup)'
+2023-08-16 21:01:41.161 +06:00 [INF] Request finished HTTP/2 POST https://localhost:7226/api/Account/Register?api-version=v1 application/json 111 - 200 - text/plain;+charset=utf-8 24784.8942ms
+2023-08-16 21:02:13.103 +06:00 [INF] Request starting HTTP/2 POST https://localhost:7226/api/Account/Login application/json 67
+2023-08-16 21:02:13.111 +06:00 [INF] Executing endpoint 'WebApiStartup.Controllers.AccountController.Login (WebApiStartup)'
+2023-08-16 21:02:13.116 +06:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(WebApiStartup.DTOs.LoginRequestDTO) on controller WebApiStartup.Controllers.AccountController (WebApiStartup).
+2023-08-16 21:02:13.176 +06:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedEmail] = @__normalizedEmail_0
+2023-08-16 21:02:13.185 +06:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2023-08-16 21:02:13.187 +06:00 [INF] Executed action WebApiStartup.Controllers.AccountController.Login (WebApiStartup) in 68.7198ms
+2023-08-16 21:02:13.188 +06:00 [INF] Executed endpoint 'WebApiStartup.Controllers.AccountController.Login (WebApiStartup)'
+2023-08-16 21:02:13.190 +06:00 [INF] Request finished HTTP/2 POST https://localhost:7226/api/Account/Login application/json 67 - 400 - text/plain;+charset=utf-8 86.8822ms
+2023-08-16 21:02:54.581 +06:00 [INF] Request starting HTTP/2 POST https://localhost:7226/api/Account/Login application/json 67
+2023-08-16 21:02:54.587 +06:00 [INF] Executing endpoint 'WebApiStartup.Controllers.AccountController.Login (WebApiStartup)'
+2023-08-16 21:02:54.589 +06:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(WebApiStartup.DTOs.LoginRequestDTO) on controller WebApiStartup.Controllers.AccountController (WebApiStartup).
+2023-08-16 21:02:58.997 +06:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedEmail] = @__normalizedEmail_0
+2023-08-16 21:04:02.464 +06:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2023-08-16 21:04:02.471 +06:00 [INF] Executed action WebApiStartup.Controllers.AccountController.Login (WebApiStartup) in 67880.7346ms
+2023-08-16 21:04:02.475 +06:00 [INF] Executed endpoint 'WebApiStartup.Controllers.AccountController.Login (WebApiStartup)'
+2023-08-16 21:04:02.476 +06:00 [INF] Request finished HTTP/2 POST https://localhost:7226/api/Account/Login application/json 67 - 400 - text/plain;+charset=utf-8 67895.1430ms
+2023-08-16 21:05:01.369 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/index.html - -
+2023-08-16 21:05:01.390 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/index.html - - - 200 - text/html;charset=utf-8 20.9672ms
+2023-08-16 21:05:01.409 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/_framework/aspnetcore-browser-refresh.js - -
+2023-08-16 21:05:01.412 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 2.2142ms
+2023-08-16 21:05:01.428 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/_vs/browserLink - -
+2023-08-16 21:05:01.464 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 36.0243ms
+2023-08-16 21:05:01.592 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - -
+2023-08-16 21:05:01.603 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 10.7252ms
+2023-08-16 21:06:21.953 +06:00 [INF] Request starting HTTP/2 POST https://localhost:7226/api/Account/Register application/json 111
+2023-08-16 21:06:21.958 +06:00 [INF] Executing endpoint 'WebApiStartup.Controllers.AccountController.Register (WebApiStartup)'
+2023-08-16 21:06:21.964 +06:00 [INF] Route matched with {action = "Register", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(WebApiStartup.DTOs.RegisterRequestDTO) on controller WebApiStartup.Controllers.AccountController (WebApiStartup).
+2023-08-16 21:06:24.524 +06:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2023-08-16 21:06:24.528 +06:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (Size = 256), @p4='?' (DbType = Boolean), @p5='?' (DbType = Boolean), @p6='?' (DbType = DateTimeOffset), @p7='?' (Size = 256), @p8='?' (Size = 256), @p9='?' (Size = 4000), @p10='?' (Size = 4000), @p11='?' (DbType = Boolean), @p12='?' (Size = 4000), @p13='?' (DbType = Boolean), @p14='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Id], [AccessFailedCount], [ConcurrencyStamp], [Email], [EmailConfirmed], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [SecurityStamp], [TwoFactorEnabled], [UserName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14);
+2023-08-16 21:06:24.530 +06:00 [INF] A new user (user) register successfully
+2023-08-16 21:06:24.531 +06:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [r].[Id], [r].[ConcurrencyStamp], [r].[Name], [r].[NormalizedName]
+FROM [Roles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedRoleName_0
+2023-08-16 21:06:24.534 +06:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (Size = 450), @__p_1='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[RoleId]
+FROM [UserRoles] AS [u]
+WHERE [u].[UserId] = @__p_0 AND [u].[RoleId] = @__p_1
+2023-08-16 21:06:24.536 +06:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [r].[Id], [r].[ConcurrencyStamp], [r].[Name], [r].[NormalizedName]
+FROM [Roles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedRoleName_0
+2023-08-16 21:06:24.539 +06:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [r].[Id], [r].[ConcurrencyStamp], [r].[Name], [r].[NormalizedName]
+FROM [Roles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedRoleName_0
+2023-08-16 21:06:24.543 +06:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (Size = 450), @__p_1='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[RoleId]
+FROM [UserRoles] AS [u]
+WHERE [u].[UserId] = @__p_0 AND [u].[RoleId] = @__p_1
+2023-08-16 21:06:24.546 +06:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [r].[Id], [r].[ConcurrencyStamp], [r].[Name], [r].[NormalizedName]
+FROM [Roles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedRoleName_0
+2023-08-16 21:06:24.553 +06:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0
+2023-08-16 21:06:24.557 +06:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 450), @p2='?' (Size = 450), @p3='?' (Size = 450), @p18='?' (Size = 450), @p4='?' (DbType = Int32), @p5='?' (Size = 4000), @p19='?' (Size = 4000), @p6='?' (Size = 256), @p7='?' (DbType = Boolean), @p8='?' (DbType = Boolean), @p9='?' (DbType = DateTimeOffset), @p10='?' (Size = 256), @p11='?' (Size = 256), @p12='?' (Size = 4000), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 4000), @p16='?' (DbType = Boolean), @p17='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [UserRoles] ([RoleId], [UserId])
+VALUES (@p0, @p1),
+(@p2, @p3);
+UPDATE [Users] SET [AccessFailedCount] = @p4, [ConcurrencyStamp] = @p5, [Email] = @p6, [EmailConfirmed] = @p7, [LockoutEnabled] = @p8, [LockoutEnd] = @p9, [NormalizedEmail] = @p10, [NormalizedUserName] = @p11, [PasswordHash] = @p12, [PhoneNumber] = @p13, [PhoneNumberConfirmed] = @p14, [SecurityStamp] = @p15, [TwoFactorEnabled] = @p16, [UserName] = @p17
+OUTPUT 1
+WHERE [Id] = @p18 AND [ConcurrencyStamp] = @p19;
+2023-08-16 21:06:24.560 +06:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2023-08-16 21:06:24.561 +06:00 [INF] Executed action WebApiStartup.Controllers.AccountController.Register (WebApiStartup) in 2595.7645ms
+2023-08-16 21:06:24.563 +06:00 [INF] Executed endpoint 'WebApiStartup.Controllers.AccountController.Register (WebApiStartup)'
+2023-08-16 21:06:24.564 +06:00 [INF] Request finished HTTP/2 POST https://localhost:7226/api/Account/Register application/json 111 - 200 - text/plain;+charset=utf-8 2611.1997ms
+2023-08-16 21:06:41.446 +06:00 [INF] Request starting HTTP/2 POST https://localhost:7226/api/Account/Login application/json 67
+2023-08-16 21:06:41.451 +06:00 [INF] Executing endpoint 'WebApiStartup.Controllers.AccountController.Login (WebApiStartup)'
+2023-08-16 21:06:41.456 +06:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(WebApiStartup.DTOs.LoginRequestDTO) on controller WebApiStartup.Controllers.AccountController (WebApiStartup).
+2023-08-16 21:06:44.409 +06:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedEmail] = @__normalizedEmail_0
+2023-08-16 21:06:45.630 +06:00 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Name]
+FROM [UserRoles] AS [u]
+INNER JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[Id]
+WHERE [u].[UserId] = @__userId_0
+2023-08-16 21:06:50.473 +06:00 [INF] Executing OkObjectResult, writing value of type 'WebApiStartup.DTOs.LoginResponseDTO'.
+2023-08-16 21:06:50.477 +06:00 [INF] Executed action WebApiStartup.Controllers.AccountController.Login (WebApiStartup) in 9019.361ms
+2023-08-16 21:06:50.478 +06:00 [INF] Executed endpoint 'WebApiStartup.Controllers.AccountController.Login (WebApiStartup)'
+2023-08-16 21:06:50.480 +06:00 [INF] Request finished HTTP/2 POST https://localhost:7226/api/Account/Login application/json 67 - 200 - application/json;+charset=utf-8 9033.8514ms
+2023-08-16 22:06:38.863 +06:00 [INF] User profile is available. Using 'C:\Users\Salman\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-08-16 22:06:38.982 +06:00 [INF] Now listening on: https://localhost:7226
+2023-08-16 22:06:38.983 +06:00 [INF] Now listening on: http://localhost:5145
+2023-08-16 22:06:38.984 +06:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-08-16 22:06:38.985 +06:00 [INF] Hosting environment: Development
+2023-08-16 22:06:38.986 +06:00 [INF] Content root path: D:\Programming\Projects\WebApiStartup\WebApiStartup
+2023-08-16 22:06:39.334 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/index.html - -
+2023-08-16 22:06:39.507 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/index.html - - - 200 - text/html;charset=utf-8 174.0697ms
+2023-08-16 22:06:39.521 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/_vs/browserLink - -
+2023-08-16 22:06:39.521 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/_framework/aspnetcore-browser-refresh.js - -
+2023-08-16 22:06:39.530 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 8.5432ms
+2023-08-16 22:06:39.557 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 35.3850ms
+2023-08-16 22:06:39.612 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - -
+2023-08-16 22:06:39.667 +06:00 [ERR] An unhandled exception has occurred while executing the request.
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Conflicting method/path combination "GET api/v1/Categories" for actions - WebApiStartup.Controllers.CategoriesController.GetAll (WebApiStartup),WebApiStartup.Controllers.CategoriesController.Create (WebApiStartup). Actions require a unique method/path combination for Swagger/OpenAPI 3.0. Use ConflictingActionsResolver as a workaround
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerDocumentWithoutFilters(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-08-16 22:06:39.689 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - - - 500 - text/plain;+charset=utf-8 77.7864ms
+2023-08-16 22:06:52.798 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - -
+2023-08-16 22:06:52.802 +06:00 [ERR] An unhandled exception has occurred while executing the request.
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Conflicting method/path combination "GET api/v1/Categories" for actions - WebApiStartup.Controllers.CategoriesController.GetAll (WebApiStartup),WebApiStartup.Controllers.CategoriesController.Create (WebApiStartup). Actions require a unique method/path combination for Swagger/OpenAPI 3.0. Use ConflictingActionsResolver as a workaround
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerDocumentWithoutFilters(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-08-16 22:06:52.833 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - - - 500 - text/html;+charset=utf-8 35.9634ms
+2023-08-16 22:06:52.848 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/_framework/aspnetcore-browser-refresh.js - -
+2023-08-16 22:06:52.848 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/_vs/browserLink - -
+2023-08-16 22:06:52.850 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 2.0588ms
+2023-08-16 22:06:52.885 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 37.3457ms
+2023-08-16 22:06:52.899 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/favicon.ico - -
+2023-08-16 22:06:52.959 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/favicon.ico - - - 404 0 - 59.7085ms
+2023-08-16 22:07:45.087 +06:00 [INF] User profile is available. Using 'C:\Users\Salman\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-08-16 22:07:45.210 +06:00 [INF] Now listening on: https://localhost:7226
+2023-08-16 22:07:45.211 +06:00 [INF] Now listening on: http://localhost:5145
+2023-08-16 22:07:45.213 +06:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-08-16 22:07:45.213 +06:00 [INF] Hosting environment: Development
+2023-08-16 22:07:45.214 +06:00 [INF] Content root path: D:\Programming\Projects\WebApiStartup\WebApiStartup
+2023-08-16 22:07:45.725 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/index.html - -
+2023-08-16 22:07:45.890 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/index.html - - - 200 - text/html;charset=utf-8 167.6338ms
+2023-08-16 22:07:45.901 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/_vs/browserLink - -
+2023-08-16 22:07:45.901 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/_framework/aspnetcore-browser-refresh.js - -
+2023-08-16 22:07:45.912 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 10.1832ms
+2023-08-16 22:07:45.941 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 39.5157ms
+2023-08-16 22:07:45.995 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - -
+2023-08-16 22:07:46.048 +06:00 [ERR] An unhandled exception has occurred while executing the request.
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Conflicting method/path combination "GET api/v1/Categories" for actions - WebApiStartup.Controllers.CategoriesController.GetAll (WebApiStartup),WebApiStartup.Controllers.CategoriesController.Create (WebApiStartup). Actions require a unique method/path combination for Swagger/OpenAPI 3.0. Use ConflictingActionsResolver as a workaround
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerDocumentWithoutFilters(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-08-16 22:07:46.075 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - - - 500 - text/plain;+charset=utf-8 79.8356ms
+2023-08-16 22:09:09.568 +06:00 [INF] User profile is available. Using 'C:\Users\Salman\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-08-16 22:09:09.689 +06:00 [INF] Now listening on: https://localhost:7226
+2023-08-16 22:09:09.690 +06:00 [INF] Now listening on: http://localhost:5145
+2023-08-16 22:09:09.693 +06:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-08-16 22:09:09.694 +06:00 [INF] Hosting environment: Development
+2023-08-16 22:09:09.694 +06:00 [INF] Content root path: D:\Programming\Projects\WebApiStartup\WebApiStartup
+2023-08-16 22:09:10.143 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/index.html - -
+2023-08-16 22:09:10.311 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/index.html - - - 200 - text/html;charset=utf-8 169.0609ms
+2023-08-16 22:09:10.321 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/_framework/aspnetcore-browser-refresh.js - -
+2023-08-16 22:09:10.321 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/_vs/browserLink - -
+2023-08-16 22:09:10.332 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 10.9730ms
+2023-08-16 22:09:10.365 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 44.1384ms
+2023-08-16 22:09:10.414 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - -
+2023-08-16 22:09:10.473 +06:00 [ERR] An unhandled exception has occurred while executing the request.
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Conflicting method/path combination "GET api/v1/Categories" for actions - WebApiStartup.Controllers.CategoriesController.GetAll (WebApiStartup),WebApiStartup.Controllers.CategoriesController.Create (WebApiStartup). Actions require a unique method/path combination for Swagger/OpenAPI 3.0. Use ConflictingActionsResolver as a workaround
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerDocumentWithoutFilters(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2023-08-16 22:09:10.496 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - - - 500 - text/plain;+charset=utf-8 82.0101ms
+2023-08-16 22:09:54.583 +06:00 [INF] User profile is available. Using 'C:\Users\Salman\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-08-16 22:09:54.711 +06:00 [INF] Now listening on: https://localhost:7226
+2023-08-16 22:09:54.712 +06:00 [INF] Now listening on: http://localhost:5145
+2023-08-16 22:09:54.714 +06:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-08-16 22:09:54.715 +06:00 [INF] Hosting environment: Development
+2023-08-16 22:09:54.716 +06:00 [INF] Content root path: D:\Programming\Projects\WebApiStartup\WebApiStartup
+2023-08-16 22:09:55.129 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/index.html - -
+2023-08-16 22:09:55.302 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/index.html - - - 200 - text/html;charset=utf-8 174.3289ms
+2023-08-16 22:09:55.304 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/_framework/aspnetcore-browser-refresh.js - -
+2023-08-16 22:09:55.312 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 7.8818ms
+2023-08-16 22:09:55.313 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/_vs/browserLink - -
+2023-08-16 22:09:55.353 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 40.5269ms
+2023-08-16 22:09:55.400 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - -
+2023-08-16 22:09:55.489 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 88.2434ms
+2023-08-16 22:10:14.691 +06:00 [INF] User profile is available. Using 'C:\Users\Salman\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-08-16 22:10:14.805 +06:00 [INF] Now listening on: https://localhost:7226
+2023-08-16 22:10:14.806 +06:00 [INF] Now listening on: http://localhost:5145
+2023-08-16 22:10:14.807 +06:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-08-16 22:10:14.808 +06:00 [INF] Hosting environment: Development
+2023-08-16 22:10:14.809 +06:00 [INF] Content root path: D:\Programming\Projects\WebApiStartup\WebApiStartup
+2023-08-16 22:10:15.278 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/index.html - -
+2023-08-16 22:10:15.456 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/index.html - - - 200 - text/html;charset=utf-8 179.8824ms
+2023-08-16 22:10:15.465 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/_vs/browserLink - -
+2023-08-16 22:10:15.465 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/_framework/aspnetcore-browser-refresh.js - -
+2023-08-16 22:10:15.478 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 12.8502ms
+2023-08-16 22:10:15.507 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 41.6936ms
+2023-08-16 22:10:15.555 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - -
+2023-08-16 22:10:15.650 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 94.8013ms
+2023-08-16 22:10:33.782 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/v2/swagger.json - -
+2023-08-16 22:10:33.786 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/v2/swagger.json - - - 200 - application/json;charset=utf-8 4.4667ms
+2023-08-16 22:10:39.583 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - -
+2023-08-16 22:10:39.591 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 8.3731ms
+2023-08-16 22:11:00.741 +06:00 [INF] User profile is available. Using 'C:\Users\Salman\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-08-16 22:11:00.861 +06:00 [INF] Now listening on: https://localhost:7226
+2023-08-16 22:11:00.862 +06:00 [INF] Now listening on: http://localhost:5145
+2023-08-16 22:11:00.863 +06:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-08-16 22:11:00.864 +06:00 [INF] Hosting environment: Development
+2023-08-16 22:11:00.865 +06:00 [INF] Content root path: D:\Programming\Projects\WebApiStartup\WebApiStartup
+2023-08-16 22:11:01.233 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/index.html - -
+2023-08-16 22:11:01.407 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/index.html - - - 200 - text/html;charset=utf-8 175.7226ms
+2023-08-16 22:11:01.417 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/_framework/aspnetcore-browser-refresh.js - -
+2023-08-16 22:11:01.417 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/_vs/browserLink - -
+2023-08-16 22:11:01.431 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 13.3692ms
+2023-08-16 22:11:01.464 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 47.0565ms
+2023-08-16 22:11:01.512 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - -
+2023-08-16 22:11:01.601 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 88.3739ms
+2023-08-16 22:11:24.779 +06:00 [INF] Request starting HTTP/2 POST https://localhost:7226/api/Account/Login application/json 67
+2023-08-16 22:11:24.846 +06:00 [INF] Executing endpoint 'WebApiStartup.Controllers.AccountController.Login (WebApiStartup)'
+2023-08-16 22:11:24.869 +06:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(WebApiStartup.DTOs.LoginRequestDTO) on controller WebApiStartup.Controllers.AccountController (WebApiStartup).
+2023-08-16 22:11:29.421 +06:00 [INF] Executed DbCommand (43ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedEmail] = @__normalizedEmail_0
+2023-08-16 22:11:29.640 +06:00 [INF] Executed DbCommand (3ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Name]
+FROM [UserRoles] AS [u]
+INNER JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[Id]
+WHERE [u].[UserId] = @__userId_0
+2023-08-16 22:11:29.738 +06:00 [INF] Executing OkObjectResult, writing value of type 'WebApiStartup.DTOs.LoginResponseDTO'.
+2023-08-16 22:11:29.747 +06:00 [INF] Executed action WebApiStartup.Controllers.AccountController.Login (WebApiStartup) in 4872.9406ms
+2023-08-16 22:11:29.749 +06:00 [INF] Executed endpoint 'WebApiStartup.Controllers.AccountController.Login (WebApiStartup)'
+2023-08-16 22:11:29.757 +06:00 [INF] Request finished HTTP/2 POST https://localhost:7226/api/Account/Login application/json 67 - 200 - application/json;+charset=utf-8 4978.6583ms
+2023-08-16 22:12:52.847 +06:00 [INF] Request starting HTTP/2 POST https://localhost:7226/api/v1/Categories/CreateCategory application/json 89
+2023-08-16 22:12:52.907 +06:00 [INF] Executing endpoint 'WebApiStartup.Controllers.CategoriesController.CreateCategory (WebApiStartup)'
+2023-08-16 22:12:52.913 +06:00 [INF] Route matched with {action = "CreateCategory", controller = "Categories"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateCategory(WebApiStartup.DTOs.CreateCategoryDTO) on controller WebApiStartup.Controllers.CategoriesController (WebApiStartup).
+2023-08-16 22:12:56.504 +06:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (Size = 500), @p1='?' (Size = 256), @p2='?' (Size = 500)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Categories] ([Description], [Name], [PhotoUrl])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2);
+2023-08-16 22:13:00.996 +06:00 [INF] Executing CreatedAtActionResult, writing value of type 'WebApiStartup.DTOs.CreateCategoryDTO'.
+2023-08-16 22:13:02.935 +06:00 [INF] Executed action WebApiStartup.Controllers.CategoriesController.CreateCategory (WebApiStartup) in 10021.3595ms
+2023-08-16 22:13:02.940 +06:00 [INF] Executed endpoint 'WebApiStartup.Controllers.CategoriesController.CreateCategory (WebApiStartup)'
+2023-08-16 22:13:02.941 +06:00 [INF] Request finished HTTP/2 POST https://localhost:7226/api/v1/Categories/CreateCategory application/json 89 - 201 - application/json;+charset=utf-8 10093.8181ms
+2023-08-16 22:13:37.191 +06:00 [INF] Request starting HTTP/2 POST https://localhost:7226/api/v1/Categories/CreateCategory application/json 81
+2023-08-16 22:13:37.203 +06:00 [INF] Executing endpoint 'WebApiStartup.Controllers.CategoriesController.CreateCategory (WebApiStartup)'
+2023-08-16 22:13:37.205 +06:00 [INF] Route matched with {action = "CreateCategory", controller = "Categories"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateCategory(WebApiStartup.DTOs.CreateCategoryDTO) on controller WebApiStartup.Controllers.CategoriesController (WebApiStartup).
+2023-08-16 22:13:39.099 +06:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (Size = 500), @p1='?' (Size = 256), @p2='?' (Size = 500)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Categories] ([Description], [Name], [PhotoUrl])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2);
+2023-08-16 22:13:39.103 +06:00 [INF] Executing CreatedAtActionResult, writing value of type 'WebApiStartup.DTOs.CreateCategoryDTO'.
+2023-08-16 22:13:39.105 +06:00 [INF] Executed action WebApiStartup.Controllers.CategoriesController.CreateCategory (WebApiStartup) in 1898.0083ms
+2023-08-16 22:13:39.106 +06:00 [INF] Executed endpoint 'WebApiStartup.Controllers.CategoriesController.CreateCategory (WebApiStartup)'
+2023-08-16 22:13:39.107 +06:00 [INF] Request finished HTTP/2 POST https://localhost:7226/api/v1/Categories/CreateCategory application/json 81 - 201 - application/json;+charset=utf-8 1917.0274ms
+2023-08-16 22:13:52.805 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/api/v1/Categories - -
+2023-08-16 22:13:52.808 +06:00 [INF] Executing endpoint 'WebApiStartup.Controllers.CategoriesController.GetAll (WebApiStartup)'
+2023-08-16 22:13:52.812 +06:00 [INF] Route matched with {action = "GetAll", controller = "Categories"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller WebApiStartup.Controllers.CategoriesController (WebApiStartup).
+2023-08-16 22:13:52.824 +06:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Description], [c].[Name], [c].[PhotoUrl]
+FROM [Categories] AS [c]
+2023-08-16 22:13:52.828 +06:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebApiStartup.Entity.Category, WebApiStartup, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-08-16 22:13:52.842 +06:00 [INF] Executed action WebApiStartup.Controllers.CategoriesController.GetAll (WebApiStartup) in 28.4174ms
+2023-08-16 22:13:52.843 +06:00 [INF] Executed endpoint 'WebApiStartup.Controllers.CategoriesController.GetAll (WebApiStartup)'
+2023-08-16 22:13:52.845 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/api/v1/Categories - - - 200 - application/json;+charset=utf-8 39.4331ms
+2023-08-16 22:13:56.610 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/v2/swagger.json - -
+2023-08-16 22:13:56.615 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/v2/swagger.json - - - 200 - application/json;charset=utf-8 4.2021ms
+2023-08-16 22:14:01.824 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/api/v2/Categories - -
+2023-08-16 22:14:01.825 +06:00 [INF] Executing endpoint 'WebApiStartup.Controllers.CategoriesController.GetAllNew (WebApiStartup)'
+2023-08-16 22:14:01.829 +06:00 [INF] Route matched with {action = "GetAllNew", controller = "Categories"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllNew() on controller WebApiStartup.Controllers.CategoriesController (WebApiStartup).
+2023-08-16 22:14:01.834 +06:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Description], [c].[Name], [c].[PhotoUrl]
+FROM [Categories] AS [c]
+2023-08-16 22:14:01.838 +06:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebApiStartup.Entity.Category, WebApiStartup, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-08-16 22:14:01.839 +06:00 [INF] Executed action WebApiStartup.Controllers.CategoriesController.GetAllNew (WebApiStartup) in 7.7154ms
+2023-08-16 22:14:01.840 +06:00 [INF] Executed endpoint 'WebApiStartup.Controllers.CategoriesController.GetAllNew (WebApiStartup)'
+2023-08-16 22:14:01.841 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/api/v2/Categories - - - 200 - application/json;+charset=utf-8 17.6917ms
+2023-08-16 22:14:11.738 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - -
+2023-08-16 22:14:11.747 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 8.8036ms
+2023-08-16 22:15:21.819 +06:00 [INF] Request starting HTTP/2 PUT https://localhost:7226/api/v1/Categories/UpdateCategory application/json 92
+2023-08-16 22:15:21.825 +06:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (superadmin)
+2023-08-16 22:15:21.830 +06:00 [INF] AuthenticationScheme: Bearer was challenged.
+2023-08-16 22:15:21.832 +06:00 [INF] Request finished HTTP/2 PUT https://localhost:7226/api/v1/Categories/UpdateCategory application/json 92 - 401 0 - 12.2217ms
+2023-08-16 22:16:09.571 +06:00 [INF] Request starting HTTP/2 PUT https://localhost:7226/api/v1/Categories/UpdateCategory application/json 92
+2023-08-16 22:16:09.576 +06:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (superadmin)
+2023-08-16 22:16:09.577 +06:00 [INF] AuthenticationScheme: Bearer was challenged.
+2023-08-16 22:16:09.578 +06:00 [INF] Request finished HTTP/2 PUT https://localhost:7226/api/v1/Categories/UpdateCategory application/json 92 - 401 0 - 7.6960ms
+2023-08-16 22:17:12.393 +06:00 [INF] Request starting HTTP/2 PUT https://localhost:7226/api/v1/Categories/UpdateCategory application/json 92
+2023-08-16 22:17:12.397 +06:00 [INF] Executing endpoint 'WebApiStartup.Controllers.CategoriesController.UpdateCategory (WebApiStartup)'
+2023-08-16 22:17:12.402 +06:00 [INF] Route matched with {action = "UpdateCategory", controller = "Categories"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateCategory(WebApiStartup.DTOs.UpdateCategoryDTO) on controller WebApiStartup.Controllers.CategoriesController (WebApiStartup).
+2023-08-16 22:17:29.423 +06:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Description], [c].[Name], [c].[PhotoUrl]
+FROM [Categories] AS [c]
+WHERE [c].[Id] = @__p_0
+2023-08-16 22:17:29.442 +06:00 [INF] Executed DbCommand (2ms) [Parameters=[@p2='?' (DbType = Int32), @p0='?' (Size = 500), @p1='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Categories] SET [Description] = @p0, [Name] = @p1
+OUTPUT 1
+WHERE [Id] = @p2;
+2023-08-16 22:17:38.050 +06:00 [INF] Executing StatusCodeResult, setting HTTP status code 204
+2023-08-16 22:17:38.051 +06:00 [INF] Executed action WebApiStartup.Controllers.CategoriesController.UpdateCategory (WebApiStartup) in 25648.0263ms
+2023-08-16 22:17:38.053 +06:00 [INF] Executed endpoint 'WebApiStartup.Controllers.CategoriesController.UpdateCategory (WebApiStartup)'
+2023-08-16 22:17:38.054 +06:00 [INF] Request finished HTTP/2 PUT https://localhost:7226/api/v1/Categories/UpdateCategory application/json 92 - 204 - - 25660.6682ms
+2023-08-16 22:17:55.944 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/index.html?urls.primaryName=V1 - -
+2023-08-16 22:17:55.968 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/index.html?urls.primaryName=V1 - - - 200 - text/html;charset=utf-8 24.0804ms
+2023-08-16 22:17:55.980 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/_framework/aspnetcore-browser-refresh.js - -
+2023-08-16 22:17:55.982 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 1.8895ms
+2023-08-16 22:17:56.001 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/_vs/browserLink - -
+2023-08-16 22:17:56.039 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 38.0405ms
+2023-08-16 22:17:56.172 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - -
+2023-08-16 22:17:56.183 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 11.2659ms
+2023-08-16 22:18:11.652 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/api/v1/Categories - -
+2023-08-16 22:18:11.653 +06:00 [INF] Executing endpoint 'WebApiStartup.Controllers.CategoriesController.GetAll (WebApiStartup)'
+2023-08-16 22:18:11.657 +06:00 [INF] Route matched with {action = "GetAll", controller = "Categories"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller WebApiStartup.Controllers.CategoriesController (WebApiStartup).
+2023-08-16 22:18:11.661 +06:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Description], [c].[Name], [c].[PhotoUrl]
+FROM [Categories] AS [c]
+2023-08-16 22:18:11.664 +06:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[WebApiStartup.Entity.Category, WebApiStartup, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-08-16 22:18:11.668 +06:00 [INF] Executed action WebApiStartup.Controllers.CategoriesController.GetAll (WebApiStartup) in 9.5122ms
+2023-08-16 22:18:11.670 +06:00 [INF] Executed endpoint 'WebApiStartup.Controllers.CategoriesController.GetAll (WebApiStartup)'
+2023-08-16 22:18:11.671 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/api/v1/Categories - - - 200 - application/json;+charset=utf-8 18.9337ms
+2023-08-16 22:18:46.510 +06:00 [INF] Request starting HTTP/2 DELETE https://localhost:7226/api/v1/Categories/8 - -
+2023-08-16 22:18:46.514 +06:00 [INF] Executing endpoint 'WebApiStartup.Controllers.CategoriesController.DeleteCategory (WebApiStartup)'
+2023-08-16 22:18:46.519 +06:00 [INF] Route matched with {action = "DeleteCategory", controller = "Categories"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteCategory(Int32) on controller WebApiStartup.Controllers.CategoriesController (WebApiStartup).
+2023-08-16 22:18:46.529 +06:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[Description], [c].[Name], [c].[PhotoUrl]
+FROM [Categories] AS [c]
+WHERE [c].[Id] = @__p_0
+2023-08-16 22:18:46.535 +06:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2023-08-16 22:18:46.537 +06:00 [INF] Executed action WebApiStartup.Controllers.CategoriesController.DeleteCategory (WebApiStartup) in 16.2269ms
+2023-08-16 22:18:46.538 +06:00 [INF] Executed endpoint 'WebApiStartup.Controllers.CategoriesController.DeleteCategory (WebApiStartup)'
+2023-08-16 22:18:46.540 +06:00 [INF] Request finished HTTP/2 DELETE https://localhost:7226/api/v1/Categories/8 - - - 404 - application/problem+json;+charset=utf-8 30.8964ms
+2023-08-16 22:31:42.931 +06:00 [INF] User profile is available. Using 'C:\Users\Salman\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-08-16 22:31:43.059 +06:00 [INF] Now listening on: https://localhost:7226
+2023-08-16 22:31:43.060 +06:00 [INF] Now listening on: http://localhost:5145
+2023-08-16 22:31:43.062 +06:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-08-16 22:31:43.063 +06:00 [INF] Hosting environment: Development
+2023-08-16 22:31:43.064 +06:00 [INF] Content root path: D:\Programming\Projects\WebApiStartup\WebApiStartup
+2023-08-16 22:31:43.939 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/index.html - -
+2023-08-16 22:31:44.107 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/index.html - - - 200 - text/html;charset=utf-8 170.3842ms
+2023-08-16 22:31:44.120 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/_framework/aspnetcore-browser-refresh.js - -
+2023-08-16 22:31:44.120 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/_vs/browserLink - -
+2023-08-16 22:31:44.129 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 9.3521ms
+2023-08-16 22:31:44.163 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 43.4452ms
+2023-08-16 22:31:44.213 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - -
+2023-08-16 22:31:44.320 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 106.2653ms
+2023-08-16 23:01:53.071 +06:00 [INF] User profile is available. Using 'C:\Users\Salman\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-08-16 23:01:53.185 +06:00 [INF] Now listening on: https://localhost:7226
+2023-08-16 23:01:53.186 +06:00 [INF] Now listening on: http://localhost:5145
+2023-08-16 23:01:53.187 +06:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-08-16 23:01:53.188 +06:00 [INF] Hosting environment: Development
+2023-08-16 23:01:53.188 +06:00 [INF] Content root path: D:\Programming\Projects\WebApiStartup\WebApiStartup
+2023-08-16 23:01:53.952 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/index.html - -
+2023-08-16 23:01:54.120 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/index.html - - - 200 - text/html;charset=utf-8 171.6940ms
+2023-08-16 23:01:54.134 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/_vs/browserLink - -
+2023-08-16 23:01:54.134 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/_framework/aspnetcore-browser-refresh.js - -
+2023-08-16 23:01:54.144 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 9.8781ms
+2023-08-16 23:01:54.172 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 38.3135ms
+2023-08-16 23:01:54.223 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - -
+2023-08-16 23:01:54.332 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 108.8895ms
+2023-08-16 23:02:06.685 +06:00 [INF] Request starting HTTP/2 POST https://localhost:7226/api/Account/Login application/json 67
+2023-08-16 23:02:06.754 +06:00 [INF] Executing endpoint 'WebApiStartup.Controllers.AccountController.Login (WebApiStartup)'
+2023-08-16 23:02:06.777 +06:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(WebApiStartup.DTOs.LoginRequestDTO) on controller WebApiStartup.Controllers.AccountController (WebApiStartup).
+2023-08-16 23:02:08.538 +06:00 [INF] Executed DbCommand (42ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Users] AS [u]
+WHERE [u].[NormalizedEmail] = @__normalizedEmail_0
+2023-08-16 23:02:08.725 +06:00 [INF] Executed DbCommand (5ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [r].[Name]
+FROM [UserRoles] AS [u]
+INNER JOIN [Roles] AS [r] ON [u].[RoleId] = [r].[Id]
+WHERE [u].[UserId] = @__userId_0
+2023-08-16 23:02:08.817 +06:00 [INF] Executing OkObjectResult, writing value of type 'WebApiStartup.DTOs.LoginResponseDTO'.
+2023-08-16 23:02:08.822 +06:00 [INF] Executed action WebApiStartup.Controllers.AccountController.Login (WebApiStartup) in 2040.1688ms
+2023-08-16 23:02:08.823 +06:00 [INF] Executed endpoint 'WebApiStartup.Controllers.AccountController.Login (WebApiStartup)'
+2023-08-16 23:02:08.829 +06:00 [INF] Request finished HTTP/2 POST https://localhost:7226/api/Account/Login application/json 67 - 200 - application/json;+charset=utf-8 2143.7811ms
+2023-08-16 23:02:43.216 +06:00 [INF] Request starting HTTP/2 POST https://localhost:7226/api/v1/Categories/CreateCategory application/json 67
+2023-08-16 23:02:43.274 +06:00 [INF] Executing endpoint 'WebApiStartup.Controllers.CategoriesController.CreateCategory (WebApiStartup)'
+2023-08-16 23:02:43.279 +06:00 [INF] Route matched with {action = "CreateCategory", controller = "Categories"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateCategory(WebApiStartup.DTOs.CreateCategoryDTO) on controller WebApiStartup.Controllers.CategoriesController (WebApiStartup).
+2023-08-16 23:03:02.164 +06:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (Size = 500), @p1='?' (Size = 256), @p2='?' (Size = 500)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Categories] ([Description], [Name], [PhotoUrl])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2);
+2023-08-16 23:03:10.547 +06:00 [INF] Executing CreatedAtActionResult, writing value of type 'WebApiStartup.DTOs.CreateCategoryDTO'.
+2023-08-16 23:03:10.573 +06:00 [INF] Executed action WebApiStartup.Controllers.CategoriesController.CreateCategory (WebApiStartup) in 27292.5196ms
+2023-08-16 23:03:10.575 +06:00 [INF] Executed endpoint 'WebApiStartup.Controllers.CategoriesController.CreateCategory (WebApiStartup)'
+2023-08-16 23:03:10.576 +06:00 [INF] Request finished HTTP/2 POST https://localhost:7226/api/v1/Categories/CreateCategory application/json 67 - 201 - application/json;+charset=utf-8 27360.1419ms
+2023-08-16 23:04:33.483 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/index.html - -
+2023-08-16 23:04:33.499 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/index.html - - - 200 - text/html;charset=utf-8 16.1328ms
+2023-08-16 23:04:33.528 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/_framework/aspnetcore-browser-refresh.js - -
+2023-08-16 23:04:33.530 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 1.7863ms
+2023-08-16 23:04:33.535 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/_vs/browserLink - -
+2023-08-16 23:04:33.573 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 38.3701ms
+2023-08-16 23:04:33.692 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - -
+2023-08-16 23:04:33.711 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 18.5192ms
+2023-08-16 23:04:57.864 +06:00 [INF] Request starting HTTP/2 POST https://localhost:7226/api/v1/Categories/CreateCategory application/json 61
+2023-08-16 23:04:57.874 +06:00 [INF] Executing endpoint 'WebApiStartup.Controllers.CategoriesController.CreateCategory (WebApiStartup)'
+2023-08-16 23:04:57.878 +06:00 [INF] Route matched with {action = "CreateCategory", controller = "Categories"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateCategory(WebApiStartup.DTOs.CreateCategoryDTO) on controller WebApiStartup.Controllers.CategoriesController (WebApiStartup).
+2023-08-16 23:05:08.457 +06:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (Size = 500), @p1='?' (Size = 256), @p2='?' (Size = 500)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Categories] ([Description], [Name], [PhotoUrl])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2);
+2023-08-16 23:05:14.440 +06:00 [INF] Executing CreatedAtActionResult, writing value of type 'WebApiStartup.DTOs.CreateCategoryDTO'.
+2023-08-16 23:05:14.443 +06:00 [INF] Executed action WebApiStartup.Controllers.CategoriesController.CreateCategory (WebApiStartup) in 16563.3712ms
+2023-08-16 23:05:14.444 +06:00 [INF] Executed endpoint 'WebApiStartup.Controllers.CategoriesController.CreateCategory (WebApiStartup)'
+2023-08-16 23:05:14.445 +06:00 [INF] Request finished HTTP/2 POST https://localhost:7226/api/v1/Categories/CreateCategory application/json 61 - 201 - application/json;+charset=utf-8 16581.0097ms
+2023-08-16 23:06:10.392 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/index.html - -
+2023-08-16 23:06:10.408 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/index.html - - - 200 - text/html;charset=utf-8 16.0955ms
+2023-08-16 23:06:10.423 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/_framework/aspnetcore-browser-refresh.js - -
+2023-08-16 23:06:10.423 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/_vs/browserLink - -
+2023-08-16 23:06:10.425 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 2.2848ms
+2023-08-16 23:06:10.460 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 36.2900ms
+2023-08-16 23:06:10.594 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - -
+2023-08-16 23:06:10.608 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 14.0570ms
+2023-08-16 23:06:34.300 +06:00 [INF] Request starting HTTP/2 POST https://localhost:7226/api/v1/Categories/CreateCategory application/json 61
+2023-08-16 23:06:34.306 +06:00 [INF] Executing endpoint 'WebApiStartup.Controllers.CategoriesController.CreateCategory (WebApiStartup)'
+2023-08-16 23:06:34.310 +06:00 [INF] Route matched with {action = "CreateCategory", controller = "Categories"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateCategory(WebApiStartup.DTOs.CreateCategoryDTO) on controller WebApiStartup.Controllers.CategoriesController (WebApiStartup).
+2023-08-16 23:13:44.674 +06:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2023-08-16 23:13:44.685 +06:00 [INF] Executed action WebApiStartup.Controllers.CategoriesController.CreateCategory (WebApiStartup) in 430373.1535ms
+2023-08-16 23:13:44.687 +06:00 [INF] Executed endpoint 'WebApiStartup.Controllers.CategoriesController.CreateCategory (WebApiStartup)'
+2023-08-16 23:13:44.688 +06:00 [INF] Request finished HTTP/2 POST https://localhost:7226/api/v1/Categories/CreateCategory application/json 61 - 404 - application/problem+json;+charset=utf-8 430388.0226ms
+2023-08-16 23:13:45.687 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/index.html - -
+2023-08-16 23:13:45.706 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/index.html - - - 200 - text/html;charset=utf-8 19.2362ms
+2023-08-16 23:13:45.709 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/_framework/aspnetcore-browser-refresh.js - -
+2023-08-16 23:13:45.709 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/_vs/browserLink - -
+2023-08-16 23:13:45.711 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 1.7125ms
+2023-08-16 23:13:45.740 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 30.3530ms
+2023-08-16 23:13:45.850 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - -
+2023-08-16 23:13:45.862 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 12.2507ms
+2023-08-16 23:14:23.061 +06:00 [INF] Request starting HTTP/2 POST https://localhost:7226/api/v1/Categories/CreateCategory application/json 61
+2023-08-16 23:14:23.063 +06:00 [INF] Executing endpoint 'WebApiStartup.Controllers.CategoriesController.CreateCategory (WebApiStartup)'
+2023-08-16 23:14:23.067 +06:00 [INF] Route matched with {action = "CreateCategory", controller = "Categories"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateCategory(WebApiStartup.DTOs.CreateCategoryDTO) on controller WebApiStartup.Controllers.CategoriesController (WebApiStartup).
+2023-08-16 23:14:34.286 +06:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.SerializableError'.
+2023-08-16 23:14:34.289 +06:00 [INF] Executed action WebApiStartup.Controllers.CategoriesController.CreateCategory (WebApiStartup) in 11220.3927ms
+2023-08-16 23:14:34.290 +06:00 [INF] Executed endpoint 'WebApiStartup.Controllers.CategoriesController.CreateCategory (WebApiStartup)'
+2023-08-16 23:14:34.292 +06:00 [INF] Request finished HTTP/2 POST https://localhost:7226/api/v1/Categories/CreateCategory application/json 61 - 400 - application/json;+charset=utf-8 11230.7417ms
+2023-08-16 23:15:29.293 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/index.html - -
+2023-08-16 23:15:29.305 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/index.html - - - 200 - text/html;charset=utf-8 11.3829ms
+2023-08-16 23:15:29.316 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/_framework/aspnetcore-browser-refresh.js - -
+2023-08-16 23:15:29.316 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/_vs/browserLink - -
+2023-08-16 23:15:29.318 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/_framework/aspnetcore-browser-refresh.js - - - 200 11996 application/javascript;+charset=utf-8 2.0464ms
+2023-08-16 23:15:29.348 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 31.4666ms
+2023-08-16 23:15:29.592 +06:00 [INF] Request starting HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - -
+2023-08-16 23:15:29.605 +06:00 [INF] Request finished HTTP/2 GET https://localhost:7226/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 12.9464ms
+2023-08-16 23:17:51.329 +06:00 [INF] Request starting HTTP/2 POST https://localhost:7226/api/v1/Categories/CreateCategory application/json 61
+2023-08-16 23:17:51.340 +06:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (superadmin)
+2023-08-16 23:17:51.344 +06:00 [INF] AuthenticationScheme: Bearer was challenged.
+2023-08-16 23:17:51.345 +06:00 [INF] Request finished HTTP/2 POST https://localhost:7226/api/v1/Categories/CreateCategory application/json 61 - 401 0 - 16.2105ms
+2023-08-16 23:18:07.598 +06:00 [INF] Request starting HTTP/2 POST https://localhost:7226/api/v1/Categories/CreateCategory application/json 61
+2023-08-16 23:18:07.601 +06:00 [INF] Executing endpoint 'WebApiStartup.Controllers.CategoriesController.CreateCategory (WebApiStartup)'
+2023-08-16 23:18:07.605 +06:00 [INF] Route matched with {action = "CreateCategory", controller = "Categories"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateCategory(WebApiStartup.DTOs.CreateCategoryDTO) on controller WebApiStartup.Controllers.CategoriesController (WebApiStartup).
+2023-08-16 23:18:13.168 +06:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.Collections.Generic.List`1[[FluentValidation.Results.ValidationFailure, FluentValidation, Version=11.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0]]'.
+2023-08-16 23:18:13.179 +06:00 [INF] Executed action WebApiStartup.Controllers.CategoriesController.CreateCategory (WebApiStartup) in 5571.7615ms
+2023-08-16 23:18:13.181 +06:00 [INF] Executed endpoint 'WebApiStartup.Controllers.CategoriesController.CreateCategory (WebApiStartup)'
+2023-08-16 23:18:13.182 +06:00 [INF] Request finished HTTP/2 POST https://localhost:7226/api/v1/Categories/CreateCategory application/json 61 - 400 - application/json;+charset=utf-8 5583.9046ms
+2023-08-16 23:19:33.279 +06:00 [INF] Request starting HTTP/2 POST https://localhost:7226/api/v1/Categories/CreateCategory application/json 78
+2023-08-16 23:19:33.283 +06:00 [INF] Executing endpoint 'WebApiStartup.Controllers.CategoriesController.CreateCategory (WebApiStartup)'
+2023-08-16 23:19:33.285 +06:00 [INF] Route matched with {action = "CreateCategory", controller = "Categories"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateCategory(WebApiStartup.DTOs.CreateCategoryDTO) on controller WebApiStartup.Controllers.CategoriesController (WebApiStartup).
+2023-08-16 23:19:35.019 +06:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.Collections.Generic.List`1[[FluentValidation.Results.ValidationFailure, FluentValidation, Version=11.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0]]'.
+2023-08-16 23:19:35.020 +06:00 [INF] Executed action WebApiStartup.Controllers.CategoriesController.CreateCategory (WebApiStartup) in 1734.0713ms
+2023-08-16 23:19:35.025 +06:00 [INF] Executed endpoint 'WebApiStartup.Controllers.CategoriesController.CreateCategory (WebApiStartup)'
+2023-08-16 23:19:35.026 +06:00 [INF] Request finished HTTP/2 POST https://localhost:7226/api/v1/Categories/CreateCategory application/json 78 - 400 - application/json;+charset=utf-8 1746.6247ms
