@@ -8,8 +8,12 @@ using Microsoft.Extensions.FileProviders;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Serilog;
+using Serilog.Events;
+using Serilog.Formatting.Json;
+using Serilog.Sinks.MSSqlServer;
 using System.Reflection;
 using System.Text;
+using Serilog.Core;
 using WebApiStartup;
 using WebApiStartup.Data;
 using WebApiStartup.Interfaces;
@@ -21,17 +25,32 @@ var services = builder.Services;
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
 // logging configuration
-var logger = new LoggerConfiguration()
-    .WriteTo.Console()
-    .WriteTo.File("Logs/app_log.txt", rollingInterval: RollingInterval.Day)
-    .MinimumLevel.Information()
-    .CreateLogger();
+//Log.Logger = new LoggerConfiguration()
+//    .WriteTo.Console(new JsonFormatter())
+//    .WriteTo.File(new JsonFormatter(), "Logs/app_log.txt", rollingInterval: RollingInterval.Day)
+//    .WriteTo.MSSqlServer("Server=(localdb)\\MsSqlLocalDb; Database=WebApiTemplateDB; User Id=sa; Password=Salman_23; Integrated Security=true; TrustServerCertificate=true",
+//                         new MSSqlServerSinkOptions
+//                         {
+//                             TableName = "Logs",
+//                             SchemaName = "dbo",
+//                             AutoCreateSqlTable = true,
+//                         }
+//                        )
+//    .WriteTo.Seq("http://localhost:5341")
+//    .MinimumLevel.Override("Microsoft.AspNetCore", LogEventLevel.Information)
+//    .CreateLogger();
+
+builder.Host.UseSerilog((hostingContext, loggerConfiguration) =>
+    loggerConfiguration.ReadFrom.Configuration(hostingContext.Configuration));
+
 builder.Logging.ClearProviders();
 
 // Add services to the container.
 
 // Add Serilog
-builder.Logging.AddSerilog(logger);
+//builder.Host.UseSerilog();
+
+//builder.Logging.AddSerilog(logger);
 
 // Add ApplicationDbContext with sql server
 services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
@@ -160,7 +179,10 @@ if (app.Environment.IsDevelopment())
     });
 }
 
+
 app.UseMiddleware<GlobalExceptionhandlerMiddleware>();
+
+//app.UseSerilogRequestLogging();
 
 app.UseHttpsRedirection();
 

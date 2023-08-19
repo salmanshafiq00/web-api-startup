@@ -65,12 +65,7 @@ D:\Programming\Projects\WebApiStartup\WebApiStartup\bin\Debug\net7.0\runtimes\wi
 D:\Programming\Projects\WebApiStartup\WebApiStartup\bin\Debug\net7.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
 D:\Programming\Projects\WebApiStartup\WebApiStartup\bin\Debug\net7.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
 D:\Programming\Projects\WebApiStartup\WebApiStartup\bin\Debug\net7.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-D:\Programming\Projects\WebApiStartup\WebApiStartup\bin\Debug\net7.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
-D:\Programming\Projects\WebApiStartup\WebApiStartup\bin\Debug\net7.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
-D:\Programming\Projects\WebApiStartup\WebApiStartup\bin\Debug\net7.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
 D:\Programming\Projects\WebApiStartup\WebApiStartup\bin\Debug\net7.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
-D:\Programming\Projects\WebApiStartup\WebApiStartup\bin\Debug\net7.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-D:\Programming\Projects\WebApiStartup\WebApiStartup\bin\Debug\net7.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
 D:\Programming\Projects\WebApiStartup\WebApiStartup\obj\Debug\net7.0\WebApiStartup.csproj.AssemblyReference.cache
 D:\Programming\Projects\WebApiStartup\WebApiStartup\obj\Debug\net7.0\WebApiStartup.GeneratedMSBuildEditorConfig.editorconfig
 D:\Programming\Projects\WebApiStartup\WebApiStartup\obj\Debug\net7.0\WebApiStartup.AssemblyInfoInputs.cache
@@ -97,3 +92,13 @@ D:\Programming\Projects\WebApiStartup\WebApiStartup\bin\Debug\net7.0\Microsoft.A
 D:\Programming\Projects\WebApiStartup\WebApiStartup\bin\Debug\net7.0\FluentValidation.dll
 D:\Programming\Projects\WebApiStartup\WebApiStartup\bin\Debug\net7.0\FluentValidation.AspNetCore.dll
 D:\Programming\Projects\WebApiStartup\WebApiStartup\bin\Debug\net7.0\FluentValidation.DependencyInjectionExtensions.dll
+D:\Programming\Projects\WebApiStartup\WebApiStartup\bin\Debug\net7.0\Serilog.Sinks.MSSqlServer.dll
+D:\Programming\Projects\WebApiStartup\WebApiStartup\bin\Debug\net7.0\Serilog.Sinks.PeriodicBatching.dll
+D:\Programming\Projects\WebApiStartup\WebApiStartup\bin\Debug\net7.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+D:\Programming\Projects\WebApiStartup\WebApiStartup\bin\Debug\net7.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
+D:\Programming\Projects\WebApiStartup\WebApiStartup\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+D:\Programming\Projects\WebApiStartup\WebApiStartup\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
+D:\Programming\Projects\WebApiStartup\WebApiStartup\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+D:\Programming\Projects\WebApiStartup\WebApiStartup\bin\Debug\net7.0\Serilog.Sinks.Seq.dll
+D:\Programming\Projects\WebApiStartup\WebApiStartup\bin\Debug\net7.0\Serilog.Enrichers.Environment.dll
+D:\Programming\Projects\WebApiStartup\WebApiStartup\bin\Debug\net7.0\Serilog.Enrichers.Thread.dll
